@@ -4,16 +4,21 @@ import copy from 'rollup-plugin-copy'
 
 export default defineConfig({
   plugins: [
-    react(),
-    {
-      ...copy({
-        targets: [
-          { src: 'posts/*', dest: 'dist/posts' },
-          { src: 'public/images/blog/*', dest: 'dist/images/blog' }
-        ],
-        hook: 'writeBundle'
-      })
-    }
+    react({
+      include: "**/*.{jsx,tsx}",
+      babel: {
+        plugins: ['@babel/plugin-transform-react-jsx'],
+        babelrc: false,
+        configFile: false,
+      }
+    }),
+    copy({
+      targets: [
+        { src: 'posts/*', dest: 'dist/posts' },
+        { src: 'public/images/blog/*', dest: 'dist/images/blog' }
+      ],
+      hook: 'writeBundle'
+    })
   ],
   base: '/',
   assetsInclude: ['**/*.md'],
