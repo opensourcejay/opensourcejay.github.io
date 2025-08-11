@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
+import SpeakingEvents from './pages/SpeakingEvents';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <NavLink to="/" end>Home</NavLink>
             <NavLink to="/projects">Projects</NavLink>
             <NavLink to="/blog">Blog</NavLink>
+            <NavLink to="/speaking">Speaking</NavLink>
           </div>
         </div>
       </nav>
@@ -25,6 +27,7 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogPost />} />
+          <Route path="/speaking" element={<SpeakingEvents />} />
         </Routes>
       </main>
     </Router>

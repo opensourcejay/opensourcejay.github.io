@@ -564,3 +564,459 @@ nav {
         justify-content: center;
     }
 }
+
+/* Speaking Events Page */
+.section-speaking {
+    padding: 120px 0 80px;
+    min-height: 100vh;
+}
+
+.speaking-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.section-speaking h1 {
+    font-size: 48px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 48px;
+    color: var(--text-color);
+}
+
+.speaking-description {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--secondary-text);
+    text-align: center;
+    margin-bottom: 64px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.speaking-topics,
+.speaking-types,
+.past-engagements,
+.contact-section {
+    margin-bottom: 64px;
+}
+
+.speaking-topics h2,
+.speaking-types h2,
+.past-engagements h2,
+.contact-section h2 {
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 32px;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.topic-card {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 32px 24px;
+    box-shadow: var(--card-shadow);
+    transition: box-shadow 0.2s ease;
+}
+
+.topic-card:hover {
+    box-shadow: var(--card-hover-shadow);
+}
+
+.topic-card h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: var(--text-color);
+}
+
+.topic-card p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--secondary-text);
+}
+
+.event-types-list {
+    max-width: 600px;
+    margin: 0 auto;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+}
+
+.event-types-list li {
+    background: var(--secondary-bg);
+    padding: 16px 24px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.engagements-timeline {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.engagement-year {
+    margin-bottom: 40px;
+}
+
+.engagement-year h3 {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.engagement-year h3:after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--primary-color);
+    margin: 8px auto 0;
+}
+
+.engagement-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.engagement-item {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px 24px;
+    box-shadow: var(--card-shadow);
+    transition: box-shadow 0.2s ease;
+}
+
+.engagement-item:hover {
+    box-shadow: var(--card-hover-shadow);
+}
+
+.engagement-item h4 {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.engagement-button {
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+}
+
+.engagement-button:hover h4 {
+    color: var(--primary-color);
+    transition: color 0.2s ease;
+}
+
+.engagement-subtitle {
+    font-size: 14px;
+    color: var(--secondary-text);
+    font-style: italic;
+    margin-top: 4px;
+    display: block;
+}
+
+.engagement-button:hover .engagement-subtitle {
+    color: var(--primary-color);
+    transition: color 0.2s ease;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.modal-content {
+    background: var(--bg-color);
+    border-radius: 12px;
+    box-shadow: var(--card-hover-shadow);
+    max-width: 600px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.modal-header {
+    padding: 24px 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 24px;
+}
+
+.modal-header h3 {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--text-color);
+    margin: 0;
+    padding-bottom: 16px;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: var(--secondary-text);
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.modal-close:hover {
+    background-color: var(--secondary-bg);
+    color: var(--text-color);
+}
+
+.modal-body {
+    padding: 0 24px 24px;
+}
+
+.engagement-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin-bottom: 24px;
+}
+
+.topics-section {
+    margin-bottom: 24px;
+}
+
+.topics-section h4 {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 12px;
+}
+
+.topics-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.topics-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--secondary-text);
+    position: relative;
+    padding-left: 20px;
+}
+
+.topics-list li:before {
+    content: '•';
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.topics-list li:last-child {
+    border-bottom: none;
+}
+
+.engagement-details {
+    margin-bottom: 24px;
+    padding: 16px;
+    background: var(--secondary-bg);
+    border-radius: 8px;
+}
+
+.engagement-details p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: var(--secondary-text);
+}
+
+.engagement-details strong {
+    color: var(--text-color);
+}
+
+.modal-footer {
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+.website-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+.website-link:hover {
+    background-color: var(--primary-hover);
+}
+
+.contact-section {
+    text-align: center;
+    background: var(--secondary-bg);
+    padding: 48px 32px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.contact-section p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--secondary-text);
+    margin-bottom: 32px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+}
+
+.contact-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-weight: 500;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.contact-button:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Speaking Events Responsive Design */
+@media (max-width: 768px) {
+    .section-speaking h1 {
+        font-size: 36px;
+        margin-bottom: 32px;
+    }
+
+    .speaking-description {
+        font-size: 16px;
+        margin-bottom: 48px;
+    }
+
+    .speaking-topics h2,
+    .speaking-types h2,
+    .past-engagements h2,
+    .contact-section h2 {
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
+
+    .topics-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .topic-card {
+        padding: 24px 20px;
+    }
+
+    .event-types-list {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .contact-section {
+        padding: 32px 20px;
+    }
+
+    .contact-section p {
+        margin-bottom: 24px;
+    }
+
+    .engagement-year h3 {
+        font-size: 20px;
+    }
+
+    .engagement-item {
+        padding: 16px 20px;
+    }
+
+    .engagement-item h4 {
+        font-size: 16px;
+    }
+
+    .modal-overlay {
+        padding: 10px;
+    }
+
+    .modal-content {
+        max-height: 90vh;
+    }
+
+    .modal-header {
+        padding: 20px 20px 0;
+    }
+
+    .modal-header h3 {
+        font-size: 20px;
+    }
+
+    .modal-body {
+        padding: 0 20px 20px;
+    }
+
+    .engagement-description {
+        font-size: 15px;
+    }
+
+    .topics-section h4 {
+        font-size: 16px;
+    }
+}
