@@ -40,7 +40,7 @@ function SpeakingEvents() {
 
     const handlePasswordSubmit = (e) => {
         e.preventDefault();
-        if (password === 'Jay Scott') {
+        if (password === 'Joshua') {
             setShowPasswordModal(false);
             setShowLinkedInModal(true);
             setPassword('');
