@@ -897,6 +897,112 @@ nav {
     background-color: var(--primary-hover);
 }
 
+/* Secret Modal Styles */
+.secret-modal {
+    max-width: 400px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: 2px solid #4facfe;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.secret-modal .modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.secret-modal .modal-header h3 {
+    color: white;
+}
+
+.secret-modal .modal-close {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.secret-modal .modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.password-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+    margin: 16px 0;
+    backdrop-filter: blur(10px);
+}
+
+.password-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.password-input:focus {
+    outline: none;
+    border-color: #4facfe;
+    box-shadow: 0 0 0 2px rgba(79, 172, 254, 0.3);
+}
+
+.password-submit {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+}
+
+.password-submit:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+.linkedin-section {
+    margin: 24px 0;
+    text-align: center;
+}
+
+.linkedin-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #0077b5;
+    color: white;
+    text-decoration: none;
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 119, 181, 0.3);
+}
+
+.linkedin-button:hover {
+    background: #005885;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 119, 181, 0.4);
+}
+
+.secret-note {
+    text-align: center;
+    margin-top: 20px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.secret-note small {
+    color: rgba(255, 255, 255, 0.9);
+}
+
 .contact-section {
     text-align: center;
     background: var(--secondary-bg);
@@ -1018,5 +1124,21 @@ nav {
 
     .topics-section h4 {
         font-size: 16px;
+    }
+
+    .secret-modal {
+        max-width: 350px;
+        margin: 0 10px;
+    }
+
+    .password-input,
+    .password-submit {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+
+    .linkedin-button {
+        padding: 12px 20px;
+        font-size: 14px;
     }
 }
