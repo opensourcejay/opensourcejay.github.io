@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function SpeakingEvents() {
+function Speaking() {
     const [selectedEngagement, setSelectedEngagement] = useState(null);
     const [showPasswordModal, setShowPasswordModal] = useState(false);
     const [showLinkedInModal, setShowLinkedInModal] = useState(false);
@@ -10,12 +10,20 @@ function SpeakingEvents() {
 
     const engagements = {
         'black-in-tech': {
-            title: 'Black is Tech',
+            title: 'blackistech Conference',
             speech: 'Developing CAMEO: An In-Browser AI Media Studio with React and JavaScript',
             date: '2025',
             description: 'CAMEO (Creative AI Media Engine Orchestrator) is a browser-based app that turns text prompts into stunning images and videos using Azure’s GPT-Image-1, DALL·E-3, and SORA models. Built with JavaScript and React, it’s fully local, privacy-first, and requires zero backend. In this talk, I’ll show how I built it, how you can run it, and what’s possible when AI and creativity meet in code.',
             audience: 'Tech professionals, students, and entrepreneurs',
             website: 'https://blackistechconference.com/'
+        },
+        'fostr-fireside': {
+            title: 'Fostr fireside chat',
+            speech: 'Bridging Black Voices Tech',
+            date: '2025',
+            description: 'In this fireside chat, I shared my personal journey navigating the tech industry as a Black technologist, highlighting the challenges, lessons, and opportunities that shaped my career. The conversation centered on representation, mentorship, and building inclusive pathways for the next generation of innovators. I also discussed the importance of bridging cultural experiences with technology, showing how diverse voices strengthen communities and fuel innovation.',
+            audience: 'Community members and technologists',
+            website: 'https://wearefostr.com'
         }
     };
 
@@ -98,6 +106,70 @@ function SpeakingEvents() {
             window.removeEventListener('keyup', handleKeyUp);
         };
     }, [secretSequence]);
+
+    // Load Google Calendar scheduling-button script + stylesheet and initialize the button
+    useEffect(() => {
+        const cssHref = 'https://calendar.google.com/calendar/scheduling-button-script.css';
+        const jsSrc = 'https://calendar.google.com/calendar/scheduling-button-script.js';
+        const targetId = 'gcal-scheduling-button-target';
+        const scheduleUrl = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ28EiMNjh4bx36EiGCZjwvPIuYSmINjfNe5jfkYST0wrj6kO1MmmpXa6sZMLlH0xeQetlgF6tZH?gv=true';
+
+        // Append stylesheet if not present
+        let linkEl = document.querySelector(`link[href="${cssHref}"]`);
+        if (!linkEl) {
+            linkEl = document.createElement('link');
+            linkEl.rel = 'stylesheet';
+            linkEl.href = cssHref;
+            document.head.appendChild(linkEl);
+        }
+
+        // Append script if not present
+        let scriptEl = document.querySelector(`script[src="${jsSrc}"]`);
+        let appended = false;
+        if (!scriptEl) {
+            scriptEl = document.createElement('script');
+            scriptEl.src = jsSrc;
+            scriptEl.async = true;
+            document.body.appendChild(scriptEl);
+            appended = true;
+        }
+
+        const tryLoad = () => {
+            try {
+                if (window.calendar && window.calendar.schedulingButton && typeof window.calendar.schedulingButton.load === 'function') {
+                    window.calendar.schedulingButton.load({
+                        url: scheduleUrl,
+                        color: '#039BE5',
+                        label: 'Book an appointment',
+                        target: document.getElementById(targetId),
+                    });
+                }
+            } catch (err) {
+                // Do not block rendering; log for debugging
+                // eslint-disable-next-line no-console
+                console.error('Failed to initialize Google Calendar scheduling button', err);
+            }
+        };
+
+        if (appended && scriptEl) {
+            scriptEl.addEventListener('load', tryLoad);
+        } else {
+            // Script already present: try immediately and again shortly after
+            tryLoad();
+            setTimeout(tryLoad, 500);
+        }
+
+        return () => {
+            if (appended && scriptEl) {
+                scriptEl.removeEventListener('load', tryLoad);
+                if (scriptEl.parentNode) scriptEl.parentNode.removeChild(scriptEl);
+            }
+            if (linkEl && linkEl.parentNode) {
+                linkEl.parentNode.removeChild(linkEl);
+            }
+        };
+    }, []);
+
     return (
         <section className="section-speaking">
             <div className="container">
@@ -143,7 +215,16 @@ function SpeakingEvents() {
                                             onClick={(e) => openModal('black-in-tech', e)}
                                             className="engagement-button"
                                         >
-                                            <h4>Black in Tech</h4>
+                                            <h4>blackistech Conference</h4>
+                                            <span className="engagement-subtitle">Click to see what I spoke about</span>
+                                        </button>
+                                    </div>
+                                    <div className="engagement-item">
+                                        <button
+                                            onClick={(e) => openModal('fostr-fireside', e)}
+                                            className="engagement-button"
+                                        >
+                                            <h4>Fostr fireside chat</h4>
                                             <span className="engagement-subtitle">Click to see what I spoke about</span>
                                         </button>
                                     </div>
@@ -154,15 +235,7 @@ function SpeakingEvents() {
 
                     <div className="contact-section">
                         <h2>Book a Speaking Engagement</h2>
-                        <p>
-                            Interested in having me speak at your event? I'd love to hear from you and
-                            discuss how we can create an engaging and valuable experience for your audience.
-                        </p>
-                        <div className="contact-info">
-                            <a href="mailto:jcode116@gmail.com" className="contact-button">
-                                Get in Touch
-                            </a>
-                        </div>
+                        <div id="gcal-scheduling-button-target" className="calendar-embed" />
                     </div>
                 </div>
             </div>
@@ -191,7 +264,7 @@ function SpeakingEvents() {
                                     rel="noopener noreferrer"
                                     className="website-link"
                                 >
-                                    Visit Conference Website
+                                    Visit Website
                                 </a>
                             </div>
                         </div>
@@ -261,4 +334,4 @@ function SpeakingEvents() {
     );
 }
 
-export default SpeakingEvents;
+export default Speaking;
