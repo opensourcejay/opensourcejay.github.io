@@ -139,10 +139,20 @@ function Speaking() {
                 if (window.calendar && window.calendar.schedulingButton && typeof window.calendar.schedulingButton.load === 'function') {
                     window.calendar.schedulingButton.load({
                         url: scheduleUrl,
-                        color: '#039BE5',
+                        color: '#059669',
                         label: 'Book an appointment',
                         target: document.getElementById(targetId),
                     });
+                    
+                    // Additional styling override after load
+                    setTimeout(() => {
+                        const button = document.querySelector('#gcal-scheduling-button-target button');
+                        if (button) {
+                            button.style.setProperty('background-color', '#059669', 'important');
+                            button.style.setProperty('border-color', '#059669', 'important');
+                            button.style.setProperty('color', 'white', 'important');
+                        }
+                    }, 100);
                 }
             } catch (err) {
                 // Do not block rendering; log for debugging

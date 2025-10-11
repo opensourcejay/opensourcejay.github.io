@@ -1,12 +1,12 @@
-# What Is Autonomous (Agentic) AI—and Why You’re Already Using It  
+# What Is Autonomous (Agentic) AI and Why You're Already Using It
 *June 10, 2025*  
 *Jay*
 
 ![Deploying Apps to Azure App Service Using Oryx](/images/blog/agenticai.png)
 
-You’ve used AI that responds—now get ready for AI that **acts**.
+You've used AI that responds - now get ready for AI that **acts**.
 
-Autonomous or **Agentic AI** represents the next evolution: intelligent systems that don’t just wait for prompts but take initiative. They plan, reason, use tools, and adapt to achieve goals—just like a junior teammate (only faster and tireless).
+Autonomous or **Agentic AI** represents the next evolution: intelligent systems that don't just wait for prompts but take initiative. They plan, reason, use tools, and adapt to achieve goals - just like a junior teammate (only faster and tireless).
 
 ---
 
@@ -19,7 +19,7 @@ Agentic systems are already embedded in our tools:
 - Your OS adjusts settings with a single voice prompt.  
 - Your IDE reviews, refactors, and pushes code.  
 
-The AI isn’t just responding anymore—it’s **taking initiative**, managing context, making decisions, and following through.
+The AI isn't just responding anymore - it's **taking initiative**, managing context, making decisions, and following through.
 
 ---
 
@@ -33,7 +33,7 @@ The AI isn’t just responding anymore—it’s **taking initiative**, managing 
 | Business Ops  | Monitors workflows, automates CRM tasks, generates reports            |
 | Research      | Synthesizes content, tracks data sources, summarizes insights         |
 
-This isn't futuristic anymore—it's built into the apps and platforms you already use.
+This isn't futuristic anymore - it's built into the apps and platforms you already use.
 
 ---
 
@@ -42,7 +42,7 @@ This isn't futuristic anymore—it's built into the apps and platforms you alrea
 Microsoft has been quietly embedding agentic capabilities into nearly every layer of its ecosystem:
 
 ### 🧠 Copilot in Code, Office, and OS  
-Whether you’re coding in GitHub, writing in Word, or tweaking Windows settings—Copilot now operates across tasks, tracks progress, and automates workflows end to end.
+Whether you're coding in GitHub, writing in Word, or tweaking Windows settings - Copilot now operates across tasks, tracks progress, and automates workflows end to end.
 
 ### 🏗️ Agent SDKs & Custom Workflows  
 Developers have tools to build multi-step AI workflows. From Power Platform bots to Teams-integrated assistants, agents can now reason over business data and take real action.
@@ -51,7 +51,7 @@ Developers have tools to build multi-step AI workflows. From Power Platform bots
 Azure offers tooling to deploy and monitor agents at scale. With telemetry, secured execution, and model flexibility, teams can move from prototype to production quickly.
 
 ### 🌐 Web Integration  
-Microsoft is exploring **standardized protocols** so agents can browse and interact across the web—safely and intelligently.
+Microsoft is exploring **standardized protocols** so agents can browse and interact across the web - safely and intelligently.
 
 ---
 
@@ -81,7 +81,7 @@ Want to build your own Copilot or custom AI assistant? Here are free Microsoft L
 - [⚙️ Automate Work with Power Platform AI Capabilities](https://learn.microsoft.com/en-us/power-automate/use-ai-builder)  
 - [📡 Use Azure AI Studio & Foundry for Multi-Agent Pipelines](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/connected-agents?pivots=portal)
 
-These tools empower developers, teams, and builders to get agentic systems into production—fast.
+These tools empower developers, teams, and builders to get agentic systems into production - fast.
 
 ---
 
@@ -94,7 +94,7 @@ With power comes risk:
 - **Speed** amplifies mistakes if agents act blindly.  
 - **Contextual memory** raises privacy and control concerns.
 
-Microsoft addresses this through strict permissions, observability, and human-in-the-loop design principles—ensuring AI helps, not hijacks.
+Microsoft addresses this through strict permissions, observability, and human-in-the-loop design principles - ensuring AI helps, not hijacks.
 
 ---
 
@@ -109,13 +109,13 @@ This evolution redefines how we work:
 | Limited scope   | API-connected, multi-tool agents |
 | One-shot use    | Ongoing, persistent reasoning   |
 
-This unlocks massive potential—automating everything from basic email triage to full-blown research assistants and operational workflows.
+This unlocks massive potential - automating everything from basic email triage to full-blown research assistants and operational workflows.
 
 ---
 
 ## 💡 Final Thought
 
-Agentic AI isn’t some future concept—it’s already in your apps, your OS, and your dev tools.
+Agentic AI isn't some future concept - it's already in your apps, your OS, and your dev tools.
 
 And thanks to platforms like AutoGen, Azure AI Studio, and Copilot Studio, **you can start building your own AI agents today**.
 

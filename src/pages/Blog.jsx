@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { discoverPosts, fetchMarkdownPost, extractMetadata } from '../../utils';
+import { discoverPosts, fetchMarkdownPost, extractMetadata } from '../utils';
 
 function Blog() {
   const [posts, setPosts] = useState([]);
@@ -34,6 +34,9 @@ function Blog() {
             <article key={post.id} className="blog-post">
               <Link to={`/blog/${post.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                 <div className="blog-post-image">
+                  <div className="blog-image-overlay">
+                    <h3 className="blog-overlay-title">{post.title}</h3>
+                  </div>
                   <img src={post.image} alt={post.title} />
                 </div>
                 <div className="blog-post-content">

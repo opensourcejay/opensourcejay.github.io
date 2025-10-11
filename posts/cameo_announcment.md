@@ -4,13 +4,13 @@
 
 ![Deploying Apps to Azure App Service Using Oryx](/images/blog/cameo.png)
 
-In the fast-moving world of multimodal AI, I wanted a lightweight way to experiment with two of the most exciting models available: **GPT-Image-1** and **Sora**. That’s why I built **CAMEO** — a clean, open-source app designed to test and compare them side by side with minimal friction.
+In the fast-moving world of multimodal AI, I wanted a lightweight way to experiment with two of the most exciting models available: **GPT-Image-1** and **Sora**. That's why I built **CAMEO** - a clean, open-source app designed to test and compare them side by side with minimal friction.
 
 ---
 
 ## What Is CAMEO?
 
-**CAMEO** is a simple interface that lets you send the same input — whether it’s an image or a prompt — to both GPT-Image-1 and Sora. It instantly returns both models’ outputs for quick visual and textual comparison. No fluff, no bloated UI — just a streamlined experience focused on rapid iteration and exploration.
+**CAMEO** is a simple interface that lets you send the same input - whether it's an image or a prompt - to both GPT-Image-1 and Sora. It instantly returns both models' outputs for quick visual and textual comparison. No fluff, no bloated UI - just a streamlined experience focused on rapid iteration and exploration.
 
 ---
 
@@ -49,4 +49,4 @@ It’s intentionally minimal, so you can clone it, plug in your API keys, and st
 
 Whether you're an AI researcher, developer, or just someone curious about the difference between GPT-Image-1 and Sora, **CAMEO** makes comparison fast, simple, and accessible.
 
-Let me know what you build with it — or even better, submit a PR!
+Let me know what you build with it - or even better, submit a PR!
