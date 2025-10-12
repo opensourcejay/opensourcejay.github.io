@@ -35,39 +35,53 @@ function BlogPost() {
   }, [id]);
 
   if (!post) {
-    return <div>Loading...</div>;
+    return (
+      <div className="blog-post-page">
+        <div className="loading-container">
+          <div className="loading-spinner"></div>
+          <p>Loading post...</p>
+        </div>
+      </div>
+    );
   }
 
   return (
     <div className="blog-post-page">
       <Link to="/blog" className="back-button">← Back to Blog</Link>
-      <div className="blog-post-header">
-        <div className="blog-post-image">
-          <img src={post.image} alt={post.title} />
-        </div>
-        <h1>{post.title}</h1>
-        <div className="blog-post-meta">
-          <span className="blog-post-author">{post.author}</span>
-          <span className="blog-post-date">{post.date}</span>
-        </div>
-      </div>
-      <div className="blog-content" dangerouslySetInnerHTML={{ __html: post.content }} />
-      <div className="blog-navigation">
-        {navigation.prev ? (
-          <Link to={`/blog/${navigation.prev.id}`} className="nav-button prev">
-            ← {navigation.prev.title}
-          </Link>
-        ) : (
-          <span></span>
-        )}
-        {navigation.next ? (
-          <Link to={`/blog/${navigation.next.id}`} className="nav-button next">
-            {navigation.next.title} →
-          </Link>
-        ) : (
-          <span></span>
-        )}
-      </div>
+      <article className="blog-post-article">
+        <header className="blog-post-header">
+          {post.image && (
+            <div className="blog-post-image">
+              <img 
+                src={post.image} 
+                alt={post.title}
+                loading="lazy"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                }}
+              />
+            </div>
+          )}
+          <h1>{post.title}</h1>
+          <div className="blog-post-meta">
+            {post.author && <span className="blog-post-author">By {post.author}</span>}
+            {post.date && <span className="blog-post-date">{post.date}</span>}
+          </div>
+        </header>
+        <main className="blog-content" dangerouslySetInnerHTML={{ __html: post.content }} />
+        <nav className="blog-navigation">
+          {navigation.prev && (
+            <Link to={`/blog/${navigation.prev.id}`} className="nav-button prev">
+              ← {navigation.prev.title}
+            </Link>
+          )}
+          {navigation.next && (
+            <Link to={`/blog/${navigation.next.id}`} className="nav-button next">
+              {navigation.next.title} →
+            </Link>
+          )}
+        </nav>
+      </article>
     </div>
   );
 }

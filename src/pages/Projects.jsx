@@ -7,9 +7,6 @@ function Projects() {
         <h2 className="section-title">Projects</h2>
         <div className="projects-grid">
           <article className="project-card">
-            <div className="project-image">
-              <img src="https://placehold.co/800x400/059669/ffffff/png?text=BlackEndpoints" alt="BlackEndpoints Project" />
-            </div>
             <div className="project-content">
               <h3>BlackEndpoints</h3>
               <p className="project-tech">React • Supabase</p>
@@ -24,9 +21,6 @@ function Projects() {
           </article>
 
           <article className="project-card">
-            <div className="project-image">
-              <img src="https://placehold.co/800x400/059669/ffffff/png?text=CAMEO" alt="CAMEO Project" />
-            </div>
             <div className="project-content">
               <h3>CAMEO</h3>
               <p className="project-tech">DALL-E-3 • GPT-Image-1 • Sora</p>
