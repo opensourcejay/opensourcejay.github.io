@@ -68,18 +68,7 @@ Example: Your Redis-backed Node.js container is running out of memory because to
 
 Example: Your Flask app can't connect to a remote SQL database due to persistent DNS resolution errors. A stop/start resolves the DNS issues by resetting the container's network configuration.
 
-## More Detailed Examples for Each Case:
-### For Linux Web Apps:
-
-**Example 1**: Imagine your Flask app is running fine until suddenly, high traffic causes it to crash. Upon investigation, you see that a memory leak caused the app to consume excessive RAM. In this case, a restart quickly refreshes the app process without disrupting the entire environment.
-
-**Example 2:** Your PHP app is failing to connect to an updated external API because the connection string was changed. After updating the environment variables in the Azure portal, a restart will pick up the new configuration and reconnect to the external service.
-
-### For Container Apps:
-
-**Example 1:** You've deployed a new Django app using an older Python base image, and now need to switch to a newer version of Python. You update your Dockerfile, push the new image, and run a stop/start to pull the updated image and rebuild the container environment.
-
-**Example 2:** Your Go app inside a container has run out of disk space due to excessive log generation. To fix it, you perform a stop/start, which resets the container, clears logs, and reinitializes the app with a clean file system.
+## Quick Reference
 
 | Scenario                             | Linux Web App (Restart/Stop) | Container App (Restart/Stop)                         |
 |--------------------------------------|-----------------------------|-----------------------------------------------------|

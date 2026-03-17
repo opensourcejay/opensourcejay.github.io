@@ -2,8 +2,6 @@
 *August 16, 2024*
 *Jay*
 
-Oryx is an open-source build system developed by Microsoft that plays a crucial role in automating the deployment process for applications on Azure App Service. The main goal of Oryx is to simplify and standardize the deployment process across various programming languages.
-
 # Oryx: Open-Source Build System for Azure
 
 ## 1. What is Oryx?
@@ -14,26 +12,11 @@ It automatically detects the language used in your project, installs the necessa
 
 ---
 
-## 2. Supported Languages
-
-Oryx supports a wide range of programming languages and environments, making it versatile for different types of web applications. The supported languages include:
-
-**Node.js** – Commonly used for server-side JavaScript applications.  
-**Python** – Popular for web frameworks like Django and Flask.  
-**.NET Core** – For cross-platform applications developed in C#.  
-**PHP** – Used for content management systems like WordPress and Laravel applications.  
-**Ruby** – For web applications built with Ruby on Rails.  
-**Java** – Often used with Spring Boot or other enterprise Java applications.  
-**Go** – Ideal for high-performance, statically typed applications.  
-**Static HTML and JavaScript apps** – For front-end applications that don’t require server-side logic.  
-
----
-
-## 3. How Oryx Works in Azure App Service
+## 2. How Oryx Works in Azure App Service
 
 ### Step 1: Language Detection
 
-When you deploy your application to Azure App Service, Oryx begins by detecting the programming language used in your project. This is done by scanning for specific files that are unique to each language. For example:
+When you deploy your application to Azure App Service, Oryx begins by detecting the programming language used in your project. It supports Node.js, Python, .NET Core, PHP, Ruby, Java, Go, and static HTML/JavaScript apps. Detection is done by scanning for specific files unique to each language:
 
 **Node.js** – Detects `package.json` (includes dependencies, scripts, and version info).  
 **Python** – Looks for `requirements.txt` or `pyproject.toml`.  

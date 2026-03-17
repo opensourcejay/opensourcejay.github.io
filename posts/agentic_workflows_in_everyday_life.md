@@ -62,14 +62,6 @@ Not every AI feature qualifies. A strong agentic workflow has a few key traits:
 
 ---
 
-## The Road Ahead
-
-We are still in the early days of agentic AI for personal use. Most of the tools available today are built for developers and businesses. But that is changing fast. As these systems become easier to set up and more integrated into the apps we already use, the benefits will reach everyone.
-
-The future of AI is not just about chatbots that answer questions. It is about agents that take action on your behalf, respect your boundaries, and genuinely make your day easier. And that future is closer than most people think.
-
----
-
 ## Learn More
 
 - [What Is Autonomous (Agentic) AI and Why You're Already Using It](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/agent-overview) (Microsoft Learn)
@@ -81,6 +73,6 @@ The future of AI is not just about chatbots that answer questions. It is about a
 
 ## Final Thoughts
 
-Agentic workflows have the potential to be one of the most practical applications of AI we have seen. But only if we build them with everyone in mind, not just power users and engineers. The more we push for accessible, people-first design in these systems, the more lives they will improve.
+We are still in the early days of agentic AI for personal use. Most of the tools available today are built for developers and businesses, but that is changing fast. As these systems become easier to set up and more integrated into everyday apps, the benefits will reach everyone.
 
-If you are curious about getting started, pay attention to the AI features rolling out in the tools you already use. Many of them are becoming more agentic every day, and the best way to learn is to start experimenting.
+The potential here is enormous, but only if we build with everyone in mind, not just power users and engineers. If you are curious about getting started, pay attention to the AI features rolling out in the tools you already use. Many of them are becoming more agentic every day, and the best way to learn is to start experimenting.

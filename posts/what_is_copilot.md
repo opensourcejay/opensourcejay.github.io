@@ -24,19 +24,11 @@ That is a lot of surface area. So what ties it all together?
 
 ## The Common Thread
 
-At its core, every version of Copilot does the same thing: it sits inside a tool you already use and helps you get more done with less effort. It is not a standalone app you have to learn from scratch. It is an assistant embedded in the workflows you already know.
+Every version of Copilot is built on the same idea: take a tool people already use and embed an AI assistant directly into it. You do not have to learn a new app or switch contexts. Copilot meets you where you are working.
 
-The underlying technology is similar across all of them. Large language models (primarily from OpenAI) power the reasoning. Microsoft's infrastructure handles the scale. And each Copilot is fine-tuned for the context it lives in. GitHub Copilot understands code. Microsoft 365 Copilot understands documents and meetings. Azure Copilot understands cloud services.
+The underlying technology is consistent across all of them. Large language models (primarily from OpenAI) power the reasoning. Microsoft's infrastructure handles the scale. And each Copilot is fine-tuned for the environment it lives in. GitHub Copilot understands code. Microsoft 365 Copilot understands documents and meetings. Azure Copilot understands cloud services. Same engine, different expertise.
 
-Same engine, different expertise.
-
----
-
-## Why One Name?
-
-Microsoft made a deliberate choice to use one brand across all of these experiences. The idea is that once you understand what Copilot does in one place, you intuitively know what to expect in another. It lowers the learning curve and creates a consistent mental model.
-
-You do not have to learn a new tool every time. You just have to ask for help in the context you are already working in.
+Microsoft using one brand name across all of these experiences is deliberate. Once you understand what Copilot does in one place, you intuitively know what to expect in another. That consistency lowers the learning curve across the entire ecosystem.
 
 ---
 
@@ -48,14 +40,6 @@ It helps to be clear about what Copilot is not:
 - **It is not a search engine.** It can retrieve information, but its main job is to help you create, edit, and act.
 - **It is not one-size-fits-all.** Each version is tailored to its environment. GitHub Copilot will not write your PowerPoint, and Microsoft 365 Copilot will not debug your Python script.
 - **It is not perfect.** It makes mistakes, sometimes confidently. You still need to review its output and apply your own judgment.
-
----
-
-## How to Think About It
-
-The simplest way to understand Copilot is this: it is an AI layer that lives on top of the tools you already use. Its job is to reduce friction. Instead of starting from a blank page, you start from a draft. Instead of searching through documentation, you ask a question. Instead of manually formatting data, you describe what you want.
-
-It does not replace your skills. It amplifies them.
 
 ---
 
@@ -83,8 +67,6 @@ A few practical tips that apply across every version:
 
 ## Final Thoughts
 
-Copilot is many things, but it is also one thing: an AI assistant designed to meet you where you work. Whether you are writing code, drafting a proposal, managing cloud infrastructure, or just trying to find a file on your desktop, there is a version of Copilot that can help.
+Whether you are writing code, drafting a proposal, managing cloud infrastructure, or just trying to find a file on your desktop, there is a version of Copilot that can help. Instead of starting from a blank page, you start from a draft. Instead of searching through documentation, you ask a question. Instead of manually formatting data, you describe what you want.
 
-The name is everywhere because the idea is simple and universal. Help people do more with less effort, right inside the tools they already know.
-
-That is Copilot. Many things, but one.
+It does not replace your skills. It amplifies them.
