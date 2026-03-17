@@ -2,9 +2,6 @@
 *November 24, 2024*
 *Jay*
 
-
-![Removing and Automating Bad Instances in Azure App Service](/images/blog/removing-bad-instances-in-azure-app-service-linux.png)
-
 Managing unhealthy instances in Azure App Service (Linux) involves identifying, rebooting, or automating the removal of problematic instances. This guide will help you manage unhealthy instances manually and leverage Azure’s automation features to maintain your app’s availability and performance.
 
 ## Identifying the Problem
