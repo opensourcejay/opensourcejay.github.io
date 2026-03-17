@@ -1,7 +1,15 @@
-import React, { useState } from 'react';
-import { HashRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { HashRouter as Router, Routes, Route, NavLink, useLocation } from 'react-router-dom';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.querySelector('.main-content')?.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 import Home from './pages/Home';
-import Projects from './pages/Projects';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import Speaking from './pages/Speaking';
@@ -26,6 +34,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="app-container">
         {/* Mobile Header */}
         <header className="mobile-header">
@@ -73,10 +82,6 @@ function App() {
                   <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home" className="nav-icon" />
                   <span>Home</span>
                 </NavLink>
-                <NavLink to="/projects" className="sidebar-nav-link" onClick={closeMobileMenu}>
-                  <img src="https://cdn-icons-png.flaticon.com/512/3281/3281289.png" alt="Projects" className="nav-icon" />
-                  <span>Projects</span>
-                </NavLink>
                 <NavLink to="/blog" className="sidebar-nav-link" onClick={closeMobileMenu}>
                   <img src="https://cdn-icons-png.flaticon.com/512/2593/2593549.png" alt="Blog" className="nav-icon" />
                   <span>Blog</span>
@@ -90,12 +95,7 @@ function App() {
           </nav>
 
           <div className="sidebar-footer">
-            <div className="social-links">
-              <a href="https://github.com/opensourcejay" target="_blank" rel="noopener noreferrer" className="social-link">
-                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" className="social-icon" />
-              </a>
-            </div>
-            <p className="sidebar-footer-text">© 2025 Jay</p>
+            <p className="sidebar-footer-text">© 2026 <a href="https://github.com/opensourcejay" target="_blank" rel="noopener noreferrer">OpensourceJay</a></p>
           </div>
         </aside>
 
@@ -103,7 +103,6 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/projects" element={<Projects />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/speaking" element={<Speaking />} />

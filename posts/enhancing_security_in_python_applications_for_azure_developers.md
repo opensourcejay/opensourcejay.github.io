@@ -2,8 +2,7 @@
 *October 04, 2024*
 *Jay*
 
-![Deploying Apps to Azure App Service Using Oryx](/images/blog/enhancing_security_in_python_applications_for_azure_developers.png)
-As part of Cybersecurity Awareness Month, we’re highlighting the importance of secure coding practices for Python developers. <!--truncate-->Python’s flexibility and widespread use in web development and APIs make it a prime target for security vulnerabilities. In this post, we’ll explore security best practices that developers can follow to protect Python applications deployed on Azure, ensuring your application remains secure from potential threats.
+As part of Cybersecurity Awareness Month, we're highlighting the importance of secure coding practices for Python developers. Python's flexibility and widespread use in web development and APIs make it a prime target for security vulnerabilities. In this post, we'll explore security best practices that developers can follow to protect Python applications deployed on Azure, ensuring your application remains secure from potential threats.
 
 ## Use Flask-Talisman to Secure HTTP Headers
 HTTP headers help protect applications from common vulnerabilities such as cross-site scripting (XSS) and clickjacking. In Flask, you can implement secure headers using Flask-Talisman.

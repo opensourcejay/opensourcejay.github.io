@@ -33,12 +33,6 @@ function Blog() {
           {posts.map((post) => (
             <article key={post.id} className="blog-post">
               <Link to={`/blog/${post.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                <div className="blog-post-image">
-                  <div className="blog-image-overlay">
-                    <h3 className="blog-overlay-title">{post.title}</h3>
-                  </div>
-                  <img src={post.image} alt={post.title} />
-                </div>
                 <div className="blog-post-content">
                   <h3 className="blog-post-title">{post.title}</h3>
                   <p className="blog-post-excerpt">{post.excerpt}</p>

@@ -2,8 +2,6 @@
 *November 26, 2024*
 *Jay*
 
-![Deploying Apps to Azure App Service Using Oryx](/images/blog/when_to_restart_vs_stop_start_linux_and_container_apps_on_azure.png)
-
 # Azure App Service Troubleshooting: When to Restart vs. Stop/Start for Linux Web Apps and Container Apps
 
 In Azure App Service, understanding when to use restart vs. stop/start is critical for efficient troubleshooting. Each option has specific use cases, and they differ especially when dealing with containerized apps. Let’s explore real-world examples with more detailed descriptions for when to use each action.

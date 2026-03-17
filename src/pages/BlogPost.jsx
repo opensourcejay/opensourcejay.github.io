@@ -50,18 +50,6 @@ function BlogPost() {
       <Link to="/blog" className="back-button">← Back to Blog</Link>
       <article className="blog-post-article">
         <header className="blog-post-header">
-          {post.image && (
-            <div className="blog-post-image">
-              <img 
-                src={post.image} 
-                alt={post.title}
-                loading="lazy"
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                }}
-              />
-            </div>
-          )}
           <h1>{post.title}</h1>
           <div className="blog-post-meta">
             {post.author && <span className="blog-post-author">By {post.author}</span>}

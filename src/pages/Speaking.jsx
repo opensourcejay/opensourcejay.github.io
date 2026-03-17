@@ -9,6 +9,14 @@ function Speaking() {
     const [secretSequence, setSecretSequence] = useState('');
 
     const engagements = {
+        'black-in-tech-2026': {
+            title: 'blackistech Conference',
+            speech: 'Democratizing Opportunity: Breaking Into Tech in an AI-Driven World',
+            date: '2026',
+            description: 'This talk explores how artificial intelligence is reshaping access to careers in tech and how long standing barriers can be deliberately removed. We will challenge myths around traditional tech paths, highlight the skills that actually matter today, and show how learning, tools, and community can level the playing field.',
+            audience: 'Tech professionals, students, and entrepreneurs',
+            website: 'https://blackistechconference.com/'
+        },
         'black-in-tech': {
             title: 'blackistech Conference',
             speech: 'Developing CAMEO: An In-Browser AI Media Studio with React and JavaScript',
@@ -183,68 +191,92 @@ function Speaking() {
     return (
         <section className="section-speaking">
             <div className="container">
-                <h1>Speaking Events</h1>
-                <div className="speaking-content">
+                {/* Hero */}
+                <div className="speaking-hero">
+                    <span className="speaking-badge">Available for Events</span>
+                    <h1>Speaking Events</h1>
                     <p className="speaking-description">
-                        I am available for public speaking engagements on AI and Cloud technology,
-                        sharing expertise to inspire and educate audiences on leveraging these tools
-                        to grow careers and businesses. Whether at conferences, seminars, or corporate
-                        events, I deliver engaging, tailored presentations that meet your audience's needs.
+                        I deliver engaging presentations on AI, Cloud, and open source
+                        — tailored for conferences, seminars, corporate events, and community meetups.
                     </p>
+                </div>
 
+                <div className="speaking-content">
+                    {/* Topics */}
                     <div className="speaking-topics">
                         <h2>Speaking Topics</h2>
                         <div className="topics-grid">
                             <div className="topic-card">
+                                <span className="topic-icon" aria-hidden="true">🤖</span>
                                 <h3>AI & Machine Learning</h3>
                                 <p>Practical applications of AI in business, ethical considerations, and future trends in artificial intelligence.</p>
                             </div>
                             <div className="topic-card">
+                                <span className="topic-icon" aria-hidden="true">☁️</span>
                                 <h3>Cloud Technology</h3>
                                 <p>Azure development, cloud migration strategies, and best practices for scalable cloud architectures.</p>
                             </div>
                             <div className="topic-card">
+                                <span className="topic-icon" aria-hidden="true">🚀</span>
                                 <h3>Career Development</h3>
                                 <p>Building a career in tech, open source contributions, and leveraging technology for professional growth.</p>
                             </div>
                             <div className="topic-card">
+                                <span className="topic-icon" aria-hidden="true">💡</span>
                                 <h3>Innovation & Entrepreneurship</h3>
                                 <p>Using technology to drive business innovation and creating pathways for future innovators.</p>
                             </div>
                         </div>
                     </div>
 
+                    {/* Past Engagements */}
                     <div className="past-engagements">
                         <h2>Past Speaking Engagements</h2>
-                        <div className="engagements-timeline">
-                            <div className="engagement-year">
-                                <h3>2025</h3>
-                                <div className="engagement-list">
-                                    <div className="engagement-item">
-                                        <button
-                                            onClick={(e) => openModal('black-in-tech', e)}
-                                            className="engagement-button"
-                                        >
-                                            <h4>blackistech Conference</h4>
-                                            <span className="engagement-subtitle">Click to see what I spoke about</span>
-                                        </button>
-                                    </div>
-                                    <div className="engagement-item">
-                                        <button
-                                            onClick={(e) => openModal('fostr-fireside', e)}
-                                            className="engagement-button"
-                                        >
-                                            <h4>Fostr fireside chat</h4>
-                                            <span className="engagement-subtitle">Click to see what I spoke about</span>
-                                        </button>
-                                    </div>
+                        <div className="engagements-grid">
+                            <button
+                                onClick={(e) => openModal('black-in-tech-2026', e)}
+                                className="engagement-card"
+                            >
+                                <div className="engagement-card-accent"></div>
+                                <div className="engagement-card-body">
+                                    <span className="engagement-tag">Conference · 2026</span>
+                                    <h3>blackistech Conference</h3>
+                                    <p className="engagement-speech">Democratizing Opportunity: Breaking Into Tech in an AI-Driven World</p>
+                                    <span className="engagement-cta">View details →</span>
                                 </div>
-                            </div>
+                            </button>
+                            <button
+                                onClick={(e) => openModal('black-in-tech', e)}
+                                className="engagement-card"
+                            >
+                                <div className="engagement-card-accent"></div>
+                                <div className="engagement-card-body">
+                                    <span className="engagement-tag">Conference · 2025</span>
+                                    <h3>blackistech Conference</h3>
+                                    <p className="engagement-speech">Developing CAMEO: An In-Browser AI Media Studio with React and JavaScript</p>
+                                    <span className="engagement-cta">View details →</span>
+                                </div>
+                            </button>
+                            <button
+                                onClick={(e) => openModal('fostr-fireside', e)}
+                                className="engagement-card"
+                            >
+                                <div className="engagement-card-accent"></div>
+                                <div className="engagement-card-body">
+                                    <span className="engagement-tag">Fireside Chat · 2025</span>
+                                    <h3>Fostr fireside chat</h3>
+                                    <p className="engagement-speech">Bridging Black Voices Tech</p>
+                                    <span className="engagement-cta">View details →</span>
+                                </div>
+                            </button>
                         </div>
                     </div>
 
+                    {/* Booking */}
                     <div className="contact-section">
+                        <span className="contact-badge" aria-hidden="true">📅</span>
                         <h2>Book a Speaking Engagement</h2>
+                        <p>Interested in having me speak at your event? Schedule a time to chat about how I can contribute to your audience.</p>
                         <div id="gcal-scheduling-button-target" className="calendar-embed" />
                     </div>
                 </div>
