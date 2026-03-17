@@ -54,12 +54,6 @@ For further automation, use Proactive Auto-Heal, which automatically restarts in
 * Leverage Health Checks: Set up health checks to proactively detect unhealthy instances early.
 * Use Auto-Healing: Configure custom auto-heal rules to automatically restart or recycle bad instances.
 * Enable Alerts: Set up alerts in Application Insights to stay informed of performance issues and potential downtime before they affect users.
-* Monitor with Azure Monitor: Use Log Analytics to track when auto-healing actions are triggered, and set up alerts to notify you when these events occur​
-AZURE
+* Monitor with Azure Monitor: Use Log Analytics to track when auto-healing actions are triggered, and set up alerts to notify you when these events occur.
 
-## Conclusion
-Azure App Service (Linux) provides several robust tools to identify, resolve, and automate the management of unhealthy instances. 
-
-Leveraging Health Checks, Auto-Heal, and Application Insights, you can ensure your application remains stable, responsive, and highly available, even during peak loads or unforeseen issues. 
-
-These best practices will help you maintain smooth operations while reducing the need for manual interventions.
+Combining these practices will help you maintain smooth operations and reduce the need for manual intervention, even during peak loads or unforeseen issues.
