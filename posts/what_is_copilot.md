@@ -15,7 +15,7 @@ Here is a quick look at where Copilot lives today:
 - **[Windows Copilot](https://www.microsoft.com/en-us/copilot)**: Built into the operating system. Answers questions, adjusts settings, summarizes content, and helps you manage your desktop.
 - **[Copilot in Edge](https://www.microsoft.com/en-us/edge/features/copilot)**: Summarizes web pages, answers questions about what you are reading, and helps with research directly in the browser.
 - **[Copilot in Azure](https://learn.microsoft.com/en-us/azure/copilot/)**: Assists with cloud infrastructure, helps write queries, troubleshoots deployments, and provides recommendations for optimization.
-- **[Copilot in Dynamics 365](https://www.microsoft.com/en-us/dynamics-365/copilot)**: Helps sales teams draft responses, generates insights from customer data, and automates routine business processes.
+- **[Copilot in Dynamics 365](https://learn.microsoft.com/en-us/dynamics365/sales/copilot-overview)**: Helps sales teams draft responses, generates insights from customer data, and automates routine business processes.
 - **[Copilot Studio](https://www.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-studio)**: Lets you build custom copilots for your organization without writing code, connecting to your own data and workflows.
 
 That is a lot of surface area. So what ties it all together?
@@ -26,7 +26,7 @@ That is a lot of surface area. So what ties it all together?
 
 Every version of Copilot is built on the same idea: take a tool people already use and embed an AI assistant directly into it. You do not have to learn a new app or switch contexts. Copilot meets you where you are working.
 
-The underlying technology is consistent across all of them. Large language models (primarily from OpenAI) power the reasoning. Microsoft's infrastructure handles the scale. And each Copilot is fine-tuned for the environment it lives in. GitHub Copilot understands code. Microsoft 365 Copilot understands documents and meetings. Azure Copilot understands cloud services. Same engine, different expertise.
+The implementation differs by product, but the interaction pattern is consistent. Models generate responses, product-specific orchestration connects them to relevant tools and data, and Microsoft's services provide the surrounding identity, security, and application experience. GitHub Copilot works with code and development context. Microsoft 365 Copilot can ground responses in organizational content that a user is allowed to access. Copilot in Azure works with Azure resources and documentation. The brand is shared, but the products do not all use one identical engine.
 
 Microsoft using one brand name across all of these experiences is deliberate. Once you understand what Copilot does in one place, you intuitively know what to expect in another. That consistency lowers the learning curve across the entire ecosystem.
 
@@ -55,18 +55,18 @@ A few practical tips that apply across every version:
 
 ---
 
-## Learn More
-
-- [Microsoft Copilot Overview](https://www.microsoft.com/en-us/copilot)
-- [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
-- [Microsoft 365 Copilot Documentation](https://learn.microsoft.com/en-us/microsoft-365-copilot/)
-- [Azure Copilot Documentation](https://learn.microsoft.com/en-us/azure/copilot/)
-- [Copilot Studio Documentation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/)
-
----
-
 ## Final Thoughts
 
 Whether you are writing code, drafting a proposal, managing cloud infrastructure, or just trying to find a file on your desktop, there is a version of Copilot that can help. Instead of starting from a blank page, you start from a draft. Instead of searching through documentation, you ask a question. Instead of manually formatting data, you describe what you want.
 
 It does not replace your skills. It amplifies them.
+
+---
+
+## Sources
+
+- [Microsoft Copilot Overview](https://www.microsoft.com/en-us/copilot)
+- [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
+- [Microsoft 365 Copilot Documentation](https://learn.microsoft.com/en-us/microsoft-365-copilot/)
+- [Copilot in Azure Documentation](https://learn.microsoft.com/en-us/azure/copilot/)
+- [Copilot Studio Documentation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/)

@@ -1,17 +1,17 @@
 # Enhancing Security in Node.js Applications for Azure Developers
-*October 04, 2024*
+*October 4, 2024*
 *Jay*
 
 In recognition of Cybersecurity Awareness Month, it's essential to focus on securing Node.js applications, especially those deployed on cloud platforms like Azure. With Node.js being a popular choice for building scalable web applications, it's crucial to adopt security best practices to protect your app and its users from common threats. This post highlights key techniques for ensuring the security of your Node.js applications on Azure.
 
 ## Use Helmet to Secure HTTP Headers
-Helmet is a popular middleware that helps set various HTTP headers to protect your application from common web vulnerabilities. By default, it prevents attacks such as Cross-Site Scripting (XSS) and Clickjacking.
+Helmet is a popular middleware that sets security-related HTTP headers. These headers help browsers mitigate risks such as clickjacking and content-type confusion, but they do not replace output encoding, input validation, or a well-designed Content Security Policy.
 
 ```javascript
 const helmet = require('helmet');
 app.use(helmet());
 ```
-Using Helmet is an easy way to secure your application against numerous security risks without much configuration effort.
+Using Helmet is a practical baseline for HTTP response headers, but its defaults should be reviewed for each application.
 
 ## Rate Limiting to Prevent Brute-Force Attacks
 Rate limiting controls the number of requests an IP can make within a specified time frame. This is particularly useful for preventing brute-force attacks, where attackers try to gain unauthorized access by guessing login credentials.
@@ -35,7 +35,7 @@ if (!validator.isEmail(req.body.email)) {
   return res.status(400).send('Invalid email address');
 }
 ```
-Always sanitize user inputs and ensure they match expected patterns before processing.
+Validate inputs against expected formats before processing them. When rendering user-controlled content, apply context-appropriate output encoding; when querying a database, use parameterized queries.
 
 ## Enable CORS for Cross-Origin Requests
 Cross-Origin Resource Sharing (CORS) defines which origins (domains) can access your resources. By default, most applications restrict cross-origin requests, but with CORS, you can control which origins are allowed.
@@ -46,7 +46,7 @@ app.use(cors({
   origin: 'https://yourtrustedwebsite.com',
 }));
 ```
-Enabling CORS with proper configuration helps protect your application from malicious requests originating from unknown sources.
+Configure CORS with the narrowest allowed origins, methods, and headers. CORS controls whether browsers expose cross-origin responses to frontend code; it is not an authentication mechanism and does not block non-browser clients.
 
 ## Secure Authentication and Session Management
 Always hash passwords using secure algorithms like bcrypt or scrypt and never store plain-text passwords. Additionally, enforce strong session management to prevent session hijacking.
@@ -73,7 +73,15 @@ npm audit fix
 Automating dependency updates in your CI/CD pipeline can help prevent security risks from third-party packages.
 
 ## Secure Data with HTTPS/TLS
-Always use HTTPS to encrypt data in transit. Azure App Services provides built-in support for SSL certificates, making it easy to enforce secure connections. Additionally, you can use Azure Key Vault to manage sensitive secrets like API keys and credentials securely.
+Always use HTTPS to encrypt data in transit. Azure App Service provides built-in support for TLS certificates, making it easy to enforce secure connections. Additionally, you can use Azure Key Vault to manage sensitive secrets like API keys and credentials securely.
 
 ## Conclusion
-By following these best practices, you can significantly enhance the security of your Node.js applications on Azure App Services. From setting HTTP headers with Helmet to securing your authentication mechanisms, small steps can go a long way in protecting your users and application from common security threats.
+By following these best practices, you can significantly enhance the security of your Node.js applications on Azure App Service. From setting HTTP headers with Helmet to securing your authentication mechanisms, small steps can go a long way in protecting your users and application from common security threats.
+
+## Sources
+
+- [Node.js Security Best Practices](https://nodejs.org/en/learn/getting-started/security-best-practices)
+- [Helmet Documentation](https://helmetjs.github.io/)
+- [Express Rate Limit Documentation](https://express-rate-limit.mintlify.app/overview)
+- [npm-audit Documentation](https://docs.npmjs.com/cli/commands/npm-audit)
+- [Security in Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/overview-security)

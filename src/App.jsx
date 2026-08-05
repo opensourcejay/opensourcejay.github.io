@@ -13,23 +13,31 @@ import Home from './pages/Home';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import Speaking from './pages/Speaking';
+import ContactModal from './components/ContactModal';
 
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen || isContactOpen ? 'hidden' : '';
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen, isContactOpen]);
 
   const toggleMobileMenu = () => {
-    const newState = !isMobileMenuOpen;
-    setIsMobileMenuOpen(newState);
-    
-    // Lock/unlock body scroll on mobile
-    if (window.innerWidth <= 1024) {
-      document.body.style.overflow = newState ? 'hidden' : '';
-    }
+    setIsMobileMenuOpen((isOpen) => !isOpen);
   };
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
-    document.body.style.overflow = '';
+  };
+
+  const openContactModal = () => {
+    setIsMobileMenuOpen(false);
+    setIsContactOpen(true);
   };
 
   return (
@@ -40,13 +48,15 @@ function App() {
         <header className="mobile-header">
           <div className="mobile-header-content">
             <div className="mobile-logo">
-              <div className="profile-initial-mobile">J</div>
+              <img src="/images/avatar.png" alt="" className="profile-initial-mobile" />
               <span className="mobile-name">Jay</span>
             </div>
             <button 
               className={`hamburger-menu ${isMobileMenuOpen ? 'active' : ''}`}
               onClick={toggleMobileMenu}
               aria-label="Toggle navigation menu"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="primary-sidebar"
             >
               <span></span>
               <span></span>
@@ -62,11 +72,9 @@ function App() {
         ></div>
 
         {/* Sidebar */}
-        <aside className={`sidebar ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+        <aside id="primary-sidebar" className={`sidebar ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
           <div className="sidebar-profile">
-            <div className="profile-image">
-              <div className="profile-initial">J</div>
-            </div>
+            <img src="/images/avatar.png" alt="Portrait of Jay" className="profile-image" />
             <h1 className="sidebar-name">Jay</h1>
             <p className="sidebar-title">Open Source Engineer</p>
             <p className="sidebar-bio">
@@ -94,6 +102,14 @@ function App() {
             </div>
           </nav>
 
+          <div className="sidebar-contact">
+            <h3 className="nav-section-title">Contact</h3>
+            <button type="button" className="sidebar-contact-button" onClick={openContactModal}>
+              <span className="sidebar-contact-icon" aria-hidden="true">@</span>
+              <span>Send a message</span>
+            </button>
+          </div>
+
           <div className="sidebar-footer">
             <p className="sidebar-footer-text">© 2026 <a href="https://github.com/opensourcejay" target="_blank" rel="noopener noreferrer">OpensourceJay</a></p>
           </div>
@@ -108,6 +124,8 @@ function App() {
             <Route path="/speaking" element={<Speaking />} />
           </Routes>
         </main>
+
+        <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
       </div>
     </Router>
   );

@@ -62,17 +62,17 @@ Not every AI feature qualifies. A strong agentic workflow has a few key traits:
 
 ---
 
-## Learn More
-
-- [What Is Autonomous (Agentic) AI and Why You're Already Using It](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/agent-overview) (Microsoft Learn)
-- [AutoGen: Multi-Agent AI Framework](https://github.com/microsoft/autogen) (GitHub)
-- [Semantic Kernel](https://github.com/microsoft/semantic-kernel) (GitHub)
-- [LangChain](https://www.langchain.com/) (Official Site)
-
----
-
 ## Final Thoughts
 
 We are still in the early days of agentic AI for personal use. Most of the tools available today are built for developers and businesses, but that is changing fast. As these systems become easier to set up and more integrated into everyday apps, the benefits will reach everyone.
 
 The potential here is enormous, but only if we build with everyone in mind, not just power users and engineers. If you are curious about getting started, pay attention to the AI features rolling out in the tools you already use. Many of them are becoming more agentic every day, and the best way to learn is to start experimenting.
+
+---
+
+## Sources
+
+- [Microsoft Foundry Agent Service Overview](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview) (Microsoft Learn)
+- [AutoGen: Multi-Agent AI Framework](https://github.com/microsoft/autogen) (GitHub)
+- [Semantic Kernel](https://github.com/microsoft/semantic-kernel) (GitHub)
+- [LangChain](https://www.langchain.com/) (Official Site)

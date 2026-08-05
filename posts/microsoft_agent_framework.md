@@ -1,8 +1,8 @@
-# Microsoft Agent Framework: The New Standard for Building AI Agents
+# Microsoft Agent Framework: A Unified SDK for Building AI Agents
 *March 16, 2026*
 *Jay*
 
-If you have been building with Microsoft's AI agent tooling, things just shifted. Microsoft has released the [Microsoft Agent Framework](https://github.com/microsoft/agent-framework), a unified open source framework for building, orchestrating, and deploying AI agents in both Python and .NET. It consolidates the capabilities that were previously spread across Semantic Kernel and AutoGen into a single, comprehensive framework.
+If you have been building with Microsoft's AI agent tooling, things just shifted. Microsoft introduced the [Microsoft Agent Framework](https://github.com/microsoft/agent-framework), a unified open source framework for building, orchestrating, and deploying AI agents in both Python and .NET. As of this post's publication, the framework is in public preview and its APIs may change. It brings together capabilities that were previously spread across Semantic Kernel and AutoGen.
 
 AutoGen is still being maintained for bug fixes and security patches, but the Agent Framework is where new development is happening. If you are starting a new project, this is where you should be looking.
 
@@ -121,7 +121,7 @@ If you are building agents on Azure or with Microsoft's AI stack, this is now th
 
 ---
 
-## Learn More
+## Sources
 
 - [Microsoft Agent Framework on GitHub](https://github.com/microsoft/agent-framework)
 - [Agent Framework Documentation](https://learn.microsoft.com/en-us/agent-framework/)

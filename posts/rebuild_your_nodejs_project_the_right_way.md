@@ -1,8 +1,8 @@
 # Rebuild Your Node.js Project the Right Way
-*October 07, 2024*
+*October 7, 2024*
 *Jay*
 
-Losing your package.json can be a real pain, especially if you're working on a large project. This file is essential for managing dependencies and running scripts, and without it, you're left to piece together what your project needs to function. Fortunately, with a few simple tools and steps, you can rebuild your package.json and restore your project. This guide will walk you through the process, starting with the most efficient method.
+Losing your package.json can be a real pain, especially if you're working on a large project. This file is essential for managing dependencies and running scripts, and without it, you're left to piece together what your project needs to function. First, recover the file from version control, a backup, or a published package whenever possible. Those options preserve exact dependency ranges, scripts, and metadata. If no copy exists, the steps below can help reconstruct it.
 
 ## Step-by-Step: Rebuilding Your package.json
 
@@ -18,7 +18,7 @@ This creates a default package.json with basic fields like project name, version
 
 ### Automatically Detect Missing Dependencies
 
-For larger projects, manually figuring out which dependencies are missing can be time-consuming. The easiest and most efficient way to tackle this is by using tools like npm-check or depcheck, which automatically scan your project for missing or outdated dependencies.
+For larger projects, manually figuring out which dependencies are missing can be time-consuming. Tools like npm-check or depcheck can scan source files and report likely missing, unused, or outdated dependencies. Treat their output as a starting point: static analysis can miss dynamic imports, plugins, command-line tools, and environment-specific packages.
 
 #### Install depcheck:
 
@@ -44,9 +44,9 @@ These tools save you a lot of time and effort, especially when dealing with comp
 
 Once you've identified missing dependencies using tools like npm-check or depcheck, start reinstalling the essential libraries or frameworks your project relies on. For instance, if you’re working on a React or Vue project, you can install the core libraries:
 
-- React: ```npm install react react-dom```
-- Vue: ```npm install vue```
-- Express: ```npm install express```
+- React: `npm install react react-dom`
+- Vue: `npm install vue`
+- Express: `npm install express`
 
 This will add them back to your newly generated package.json.
 
@@ -73,11 +73,12 @@ This will ensure that these packages are included in the devDependencies section
 The package.json also contains useful scripts for running and building your project. If you recall the commands you were using, you can manually add them back into the scripts section. For example:
 
 ```json
-
+{
 "scripts": {
   "start": "node server.js",
   "build": "webpack --mode production",
   "test": "jest"
+}
 }
 ```
 
@@ -86,4 +87,12 @@ If you’re unsure what scripts were used, you can check documentation or README
 ### Conclusion
 Restoring a missing package.json file doesn’t have to be an overwhelming task. By starting with automated tools like npm-check or depcheck, you can quickly identify missing dependencies, especially in large projects. Once you’ve reinitialized your package.json, reinstall the core frameworks and manually inspect for any additional packages your project may need.
 
-This process ensures that your project can be restored efficiently, without spending hours manually searching for each dependency. Regularly updating your package.json file will prevent similar issues in the future and keep your project running smoothly​
+This process helps reconstruct a working project, but it may not reproduce the exact versions or behavior of the original. Commit both `package.json` and the appropriate lockfile to version control so they can be recovered together.
+
+## Sources
+
+- [npm: Creating a package.json File](https://docs.npmjs.com/creating-a-package-json-file)
+- [npm: Specifying Dependencies and DevDependencies](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file)
+- [npm: About package-lock.json](https://docs.npmjs.com/cli/configuring-npm/package-lock-json)
+- [depcheck Repository](https://github.com/depcheck/depcheck)
+- [npm-check Repository](https://github.com/dylang/npm-check)

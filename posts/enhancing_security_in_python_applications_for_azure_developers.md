@@ -1,5 +1,5 @@
 # Enhancing Security in Python Applications for Azure Developers
-*October 04, 2024*
+*October 5, 2024*
 *Jay*
 
 As part of Cybersecurity Awareness Month, we're highlighting the importance of secure coding practices for Python developers. Python's flexibility and widespread use in web development and APIs make it a prime target for security vulnerabilities. In this post, we'll explore security best practices that developers can follow to protect Python applications deployed on Azure, ensuring your application remains secure from potential threats.
@@ -40,7 +40,7 @@ def index():
 By limiting requests from each IP, you can safeguard the backend from malicious access attempts.
 
 ## Validate and Sanitize User Inputs
-Invalid user inputs are one of the most common vulnerabilities in applications. To avoid injection attacks, always validate and sanitize inputs using libraries like validators.
+Invalid user inputs are a common source of application vulnerabilities. Validate values against the format and constraints your application expects before using them.
 
 ```python
 import validators
@@ -50,7 +50,7 @@ if not validators.email(email):
     raise ValueError("Invalid email format")
 ```
 
-This ensures inputs are properly sanitized, preventing issues like SQL injection.
+This verifies that the value has an email-like format. It does not sanitize the value or prevent SQL injection; use parameterized queries for database operations and context-appropriate output encoding when rendering user-controlled content.
 
 ## Enforce HTTPS
 Data transmission needs to be encrypted to prevent interception. Enforce HTTPS in Azure by configuring the platform and redirecting all HTTP traffic to HTTPS.
@@ -64,7 +64,7 @@ def redirect_to_https():
         return redirect(request.url.replace("http://", "https://"))
 ```
 
-Azure provides SSL certificates to secure connections with minimal effort.
+Azure App Service provides TLS certificates and an HTTPS Only setting to secure connections with minimal effort. Prefer enforcing HTTPS at the platform level; application redirects should only trust forwarded headers when the proxy configuration is known and trusted.
 
 ## Secure Authentication and Password Hashing
 Never store plaintext passwords. Always hash passwords with secure algorithms like bcrypt to ensure user data is safe.
@@ -131,4 +131,13 @@ pip-audit
 ```
 
 ## Conclusion
-By following these best practices, you can significantly improve the security of your Python applications hosted on Azure App Services. From validating user inputs to securing sensitive data, proactive measures help safeguard applications from common vulnerabilities.
+By following these best practices, you can significantly improve the security of your Python applications hosted on Azure App Service. From validating user inputs to securing sensitive data, proactive measures help safeguard applications from common vulnerabilities.
+
+## Sources
+
+- [Flask-Talisman Repository](https://github.com/GoogleCloudPlatform/flask-talisman)
+- [Flask-Limiter Documentation](https://flask-limiter.readthedocs.io/)
+- [Flask-WTF CSRF Protection](https://flask-wtf.readthedocs.io/en/1.2.x/csrf/)
+- [Azure Key Vault Python Quickstart](https://learn.microsoft.com/en-us/azure/key-vault/secrets/quick-create-python)
+- [pip-audit Repository](https://github.com/pypa/pip-audit)
+- [Security in Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/overview-security)

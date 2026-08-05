@@ -76,11 +76,11 @@ From there you have a running endpoint backed by Fireworks' inference engine wit
 
 ---
 
-## Learn More
+## Sources
 
 - [Fireworks AI on Microsoft Foundry](https://aka.ms/fireworks-learn-more)
 - [Upload custom weight models on Foundry](https://aka.ms/foundry-custom-models)
 - [Microsoft Foundry documentation](https://learn.microsoft.com/en-us/azure/ai-foundry/)
-- [Artificial Analysis — Fireworks benchmarks](https://artificialanalysis.ai/providers/fireworks)
+- [Artificial Analysis: Fireworks benchmarks](https://artificialanalysis.ai/providers/fireworks)
 
 ---

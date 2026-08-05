@@ -10,7 +10,7 @@ If you are building with AI or just getting started, Microsoft's open source too
 
 ## The Phi Model Family
 
-Microsoft's Phi series (Phi-2, Phi-3, Phi-4) are small language models that punch well above their weight. They are **open-weight models**, meaning anyone can download, fine-tune, and deploy them without paying licensing fees or relying on an API.
+Microsoft's Phi series (Phi-2, Phi-3, Phi-4) are small language models that punch well above their weight. They are **open-weight models**, meaning their weights can be downloaded and used without relying on a hosted API, subject to the license published with each model.
 
 ### Why Phi Models Matter
 
@@ -18,7 +18,7 @@ Most large language models require massive GPU infrastructure to run. Phi models
 
 - **Phi-3 Mini** has 3.8 billion parameters and runs on a phone. See the [Phi-3 Technical Report](https://arxiv.org/abs/2404.14219) for benchmarks.
 - **Phi-3 Medium** has 14 billion parameters and runs on a single GPU.
-- **[Phi-4](https://azure.microsoft.com/en-us/blog/introducing-phi-4-microsoft-s-newest-small-language-model-specializing-in-complex-reasoning/)** pushes reasoning performance even further while staying efficient.
+- **[Phi-4](https://azure.microsoft.com/en-us/products/phi)** pushes reasoning performance even further while staying efficient.
 
 These models perform competitively against much larger models on benchmarks for reasoning, coding, and general knowledge. That means you can experiment with capable AI without needing a data center or a massive cloud bill.
 
@@ -117,16 +117,16 @@ Microsoft's open source AI investment lowers the barrier in every direction:
 
 ---
 
-## Learn More
+## Final Thought
+
+The AI landscape is often portrayed as a competition between closed, proprietary models. But some of the most capable and practical AI tools available today are open source, and Microsoft is behind many of them. Whether you are a student experimenting for the first time or a developer building production systems, these tools are free, accessible, and ready to use.
+
+---
+
+## Sources
 
 - [Microsoft Phi Models on Hugging Face](https://huggingface.co/microsoft)
 - [ONNX Runtime GitHub Repository](https://github.com/microsoft/onnxruntime)
 - [AutoGen Documentation](https://microsoft.github.io/autogen/)
 - [Azure AI Foundry Documentation](https://learn.microsoft.com/en-us/azure/ai-foundry/)
 - [Microsoft Open Source Portal](https://opensource.microsoft.com/)
-
----
-
-## Final Thought
-
-The AI landscape is often portrayed as a competition between closed, proprietary models. But some of the most capable and practical AI tools available today are open source, and Microsoft is behind many of them. Whether you are a student experimenting for the first time or a developer building production systems, these tools are free, accessible, and ready to use.

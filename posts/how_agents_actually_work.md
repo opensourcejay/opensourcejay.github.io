@@ -176,7 +176,7 @@ run_agent("What is Python and what is 42 * 17?")
 
 The output looks something like this:
 
-```
+```text
   [Step 1] Calling: search_knowledge_base({"query": "python"})
   [Step 1] Result: Python is a high-level programming language created by Guido van Rossum in 1991.
   [Step 1] Calling: calculate({"expression": "42 * 17"})
@@ -213,16 +213,6 @@ But under the hood, every framework runs some version of this same loop: reason,
 
 ---
 
-## Learn More
-
-- [OpenAI Function Calling Guide](https://platform.openai.com/docs/guides/function-calling)
-- [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) (Original Paper)
-- [AutoGen Documentation](https://microsoft.github.io/autogen/)
-- [LangChain Documentation](https://python.langchain.com/docs/get_started/introduction)
-- [Semantic Kernel Documentation](https://learn.microsoft.com/en-us/semantic-kernel/overview/)
-
----
-
 ## What To Build Next
 
 Once you have the basics down, try expanding your agent:
@@ -234,3 +224,13 @@ Once you have the basics down, try expanding your agent:
 - Deploy it as an API endpoint using Flask or FastAPI.
 
 The core pattern stays the same no matter how complex the system gets. Every agent you see in the wild, from Copilot to custom enterprise bots, is built on this foundation.
+
+---
+
+## Sources
+
+- [OpenAI Function Calling Guide](https://platform.openai.com/docs/guides/function-calling)
+- [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) (Original Paper)
+- [AutoGen Documentation](https://microsoft.github.io/autogen/)
+- [LangChain Documentation](https://python.langchain.com/docs/get_started/introduction)
+- [Semantic Kernel Documentation](https://learn.microsoft.com/en-us/semantic-kernel/overview/)

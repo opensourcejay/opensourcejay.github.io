@@ -47,8 +47,16 @@ function Home() {
 
           <div className="home-social-row">
             <a href="https://github.com/opensourcejay" target="_blank" rel="noopener noreferrer" className="home-social-link">
-              <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="" />
+              <i className="fa-brands fa-github" aria-hidden="true"></i>
               GitHub
+            </a>
+            <a href="https://www.instagram.com/opensourcejay" target="_blank" rel="noopener noreferrer" className="home-social-link">
+              <i className="fa-brands fa-instagram" aria-hidden="true"></i>
+              Instagram
+            </a>
+            <a href="https://www.youtube.com/@opensourcejay" target="_blank" rel="noopener noreferrer" className="home-social-link">
+              <i className="fa-brands fa-youtube" aria-hidden="true"></i>
+              YouTube
             </a>
           </div>
         </div>

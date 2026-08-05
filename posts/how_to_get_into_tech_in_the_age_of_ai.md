@@ -119,18 +119,18 @@ If you are starting from zero, here is a concrete path:
 
 ---
 
-## Learn More
-
-- [freeCodeCamp](https://www.freecodecamp.org/) (Free, project-based coding curriculum)
-- [GitHub Skills](https://skills.github.com/) (Learn Git and GitHub interactively)
-- [Microsoft Learn](https://learn.microsoft.com/) (Free courses on Azure, AI, and development)
-- [Python.org Beginner's Guide](https://wiki.python.org/moin/BeginnersGuide)
-- [Good First Issues](https://goodfirstissues.com/) (Find your first open source contribution)
-
----
-
 ## Final Thought
 
 AI is not closing the door to tech. It is opening it wider. The tools are more powerful, the resources are more accessible, and the opportunities are more diverse than at any point in history.
 
 The question is not whether you are qualified. The question is whether you are willing to start.
+
+---
+
+## Sources
+
+- [freeCodeCamp](https://www.freecodecamp.org/) (Free, project-based coding curriculum)
+- [GitHub Skills](https://skills.github.com/) (Learn Git and GitHub interactively)
+- [Microsoft Learn](https://learn.microsoft.com/) (Free courses on Azure, AI, and development)
+- [Python.org Beginner's Guide](https://wiki.python.org/moin/BeginnersGuide)
+- [GitHub Good First Issue Projects](https://github.com/topics/good-first-issue) (Find your first open source contribution)

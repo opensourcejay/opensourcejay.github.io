@@ -1,82 +1,61 @@
-# When to restart vs stop start linux and container apps on Azure
+# When to Restart vs. Stop and Start Linux Apps on Azure
 *November 26, 2024*
 *Jay*
 
-# Azure App Service Troubleshooting: When to Restart vs. Stop/Start for Linux Web Apps and Container Apps
+Azure App Service and Azure Container Apps have different lifecycle controls. A restart is useful for transient runtime failures. Stopping and starting is a broader availability action, not a substitute for diagnosing the underlying problem or deploying a new image.
 
-In Azure App Service, understanding when to use restart vs. stop/start is critical for efficient troubleshooting. Each option has specific use cases, and they differ especially when dealing with containerized apps. Let’s explore real-world examples with more detailed descriptions for when to use each action.
+Before taking either action, capture logs, metrics, and recent configuration or deployment changes. Restarting first can erase the evidence needed for root-cause analysis.
 
-## For Linux Web Apps:
-### When to Restart:
-**Restart:** This resets the application process without affecting the entire environment, making it a fast solution for smaller, app-specific issues.
+## Azure App Service on Linux
 
-Performance Degradation (Memory/CPU Spikes): If your app is slowing down due to high memory usage or CPU spikes, restarting clears in-memory data and CPU-heavy processes without interrupting the app environment.
+### When to Restart
 
-- Example: Your Node.js app has a memory leak due to a background job that didn't clear properly. A restart resets the job, clears memory, and prevents the app from crashing under high memory use.
+Restart the app when you need to recycle its worker processes across the instances serving it. This can temporarily recover from a stuck process, exhausted in-memory state, or a transient runtime failure.
 
-Applying Minor Configuration Changes: After modifying environment variables or other application settings (e.g., API keys or database connection strings), restarting ensures the app picks up the new settings.
+Examples include:
 
-- Example: You change the database connection string for your Flask app. Restarting the app will reload the new configuration, allowing it to connect to the updated database without tearing down the container.
+- A process is unresponsive after you have captured diagnostics.
+- Memory usage remains elevated because of an application leak.
+- A dependency experienced a transient failure and the application did not recover correctly.
 
-Minor Code Updates: After pushing small bug fixes or deploying a patch, restart the app to ensure the code is applied without needing a full reset.
+Many App Service configuration changes already trigger an application restart. A deployment should use the supported deployment flow rather than relying on a manual restart to apply code.
 
-- Example: You fix a broken route in a Django app, and restarting applies the fix while keeping the app environment stable.
+### When to Stop and Start
 
-**Stop/Start:** This is a more aggressive reset, taking the entire app offline and restarting it, including its infrastructure and resources.
-When to Stop/Start:
+Stopping an App Service app takes it offline until it is started again. Use this when you intentionally need the application unavailable, such as during controlled maintenance or when preventing traffic and compute activity while investigating an incident.
 
-### When to Stop & Start:
+Do not assume stop/start will fix DNS, TLS, disk, or application defects. Diagnose those problems directly. For production maintenance, use deployment slots or another traffic-management strategy when possible to reduce downtime.
 
-Resource Exhaustion (Disk or Memory): When logs, temp files, or processes are eating up too much disk space or memory, a stop/start clears all system resources and resets the environment completely.
+## Azure Container Apps
 
-- Example: Your PHP web app has been writing excessive logs and is running out of disk space. A stop/start clears the container, wipes non-persistent logs, and starts with a fresh slate.
+Azure Container Apps manages immutable revisions and their replicas. Its lifecycle differs from App Service.
 
-Persistent Network Issues: If your app is facing continuous SSL certificate errors or DNS resolution failures, stop/start resets the network stack, which can help re-establish connections.
+### When to Restart a Revision
 
-- Example: Your app can’t connect to an external API due to SSL handshake failures. A stop/start resets the network configuration and re-establishes secure connections.
+Restart a revision when its replicas are in a bad transient state and you want Azure to create new replicas for that revision. Capture console and system logs first. If the failure is caused by code, configuration, secrets, or the container image, create a corrected revision instead of repeatedly restarting the old one.
 
-Major Infrastructure Changes: When moving to a new App Service Plan or scaling up your infrastructure, a stop/start ensures that the new environment configurations are fully applied.
+### When to Stop and Start the App
 
-- Example: You switch your app to a larger service plan for better performance under high traffic. A stop/start ensures that the app is running on the new, scaled infrastructure with the right resource allocation.
+Stopping a container app disables all of its revisions and stops accepting traffic. Starting it makes the app active again. Use this for intentional shutdowns, maintenance, or cost control when downtime is acceptable.
 
-## For Container Apps:
-
-### When to Restart:
-**Restart:** This action only restarts the application process inside the existing container. The container remains intact, and no changes are made to the container image or its environment.
-
-Application Crashes or Logic Failures: If your app crashes due to code logic errors or runtime exceptions, restarting the app inside the container can quickly resolve the issue.
-
-- Example: A Spring Boot app crashes after a failed HTTP request. Restarting resets the app and avoids tearing down the container, which means you can resolve the issue without affecting other running services.
-
-Configuration or Environment Variable Changes: If you've updated environment variables inside the container (e.g., modifying API endpoints or secrets), a restart is enough to reload the new settings.
-
-- Example: You update an API key stored in the environment variables for your Express.js app. Restarting the container applies the updated environment configuration without needing to pull a new Docker image.
-
-**Stop/Start:** This is a complete teardown of the container, including pulling new Docker images and reinitializing network and file systems. It's used when deeper issues need a full reset or when you're updating the container image.
-
-### When to Stop & Start:
-
-- Deploying a New Docker Image: If you've pushed a new Docker image (e.g., new app version or runtime updates), stop/start is necessary to pull the latest image and apply the changes.
-
-Example: You update your Dockerfile to switch from Node.js 14 to Node.js 18. A stop/start ensures the container runs the new image with the updated runtime.
-
-- Container-Level Resource Exhaustion: If your container is maxing out memory or disk space due to excessive logging or failed processes, stop/start clears all non-persistent data and resets system resources.
-
-Example: Your Redis-backed Node.js container is running out of memory because too many logs have accumulated. A stop/start resets the container and clears the excessive logs and temporary files.
-
-- Persistent Networking Failures: If SSL, DNS, or external connection issues persist even after a restart, stop/start resets the entire network stack, re-establishing all connections.
-
-Example: Your Flask app can't connect to a remote SQL database due to persistent DNS resolution errors. A stop/start resolves the DNS issues by resetting the container's network configuration.
+Stop/start does not deploy a new image. To update an image or revision-scope configuration, update the container app so Azure creates a new revision, then direct traffic to the healthy revision.
 
 ## Quick Reference
 
-| Scenario                             | Linux Web App (Restart/Stop) | Container App (Restart/Stop)                         |
-|--------------------------------------|-----------------------------|-----------------------------------------------------|
-| High memory/CPU usage                | Restart                     | Restart                                             |
-| Persistent network/SSL issues        | Stop/Start                  | Stop/Start                                          |
-| Minor configuration changes          | Restart                     | Restart                                             |
-| Deploying new code (minor updates)   | Restart                     | Restart (no new image); Stop/Start (new image)      |
-| Disk/resource exhaustion             | Stop/Start                  | Stop/Start                                          |
-| Major infrastructure changes         | Stop/Start                  | Stop/Start                                          |
+| Scenario | Azure App Service on Linux | Azure Container Apps |
+|---|---|---|
+| Transient stuck process or replica | Restart after collecting diagnostics | Restart the affected revision after collecting diagnostics |
+| Code, image, or configuration defect | Correct and redeploy | Create a corrected revision and shift traffic |
+| Planned downtime | Stop and start the app | Stop and start the container app |
+| New container image | Deploy through App Service | Update the app to create a new revision |
+| Repeated memory, disk, DNS, or TLS failure | Diagnose the root cause; a restart is temporary | Diagnose the root cause; a restart is temporary |
 
-By understanding these scenarios and knowing when to choose restart versus stop/start, you can minimize downtime, resolve issues quickly, and keep your apps running smoothly in Azure.
+Restarts are recovery actions, not fixes. If the same symptom returns, use logs, metrics, Health Check, Application Insights, and revision diagnostics to identify the underlying cause.
+
+## Sources
+
+- [Azure CLI: Restart an App Service Web App](https://learn.microsoft.com/en-us/cli/azure/webapp?view=azure-cli-latest#az-webapp-restart)
+- [Azure App Service Diagnostics Overview](https://learn.microsoft.com/en-us/azure/app-service/overview-diagnostics)
+- [Azure CLI: Stop and Start a Container App](https://learn.microsoft.com/en-us/cli/azure/containerapp?view=azure-cli-latest#az-containerapp-stop)
+- [Update and Deploy Changes in Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/revisions-manage)
+- [Troubleshoot Health and Performance in Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/troubleshooting)

@@ -72,7 +72,7 @@ This work is invisible but essential. Maintainers burn out when the project mana
 
 1. **Start with a project you actually use.** You will care more about improving something you rely on.
 2. **Check the contributing guide.** Most projects have a `CONTRIBUTING.md` file that explains how to get started.
-3. **Look for labels.** GitHub issues labeled **"good first issue"**, **"help wanted"**, or **"documentation"** are intentionally set aside for newcomers. You can also use [Good First Issues](https://goodfirstissues.com/) or [Up For Grabs](https://up-for-grabs.net/) to find beginner-friendly issues across thousands of projects.
+3. **Look for labels.** GitHub issues labeled **"good first issue"**, **"help wanted"**, or **"documentation"** are intentionally set aside for newcomers. You can also browse GitHub's [good-first-issue topic](https://github.com/topics/good-first-issue) or [Up For Grabs](https://up-for-grabs.net/) to find beginner-friendly issues across thousands of projects.
 4. **Start small.** Fix a typo. Improve a sentence. Add a missing example. The goal is to get comfortable with the contribution workflow.
 5. **Open a pull request.** Even if your change is tiny, submit it. You will learn the review process, and maintainers will welcome you.
 
@@ -86,17 +86,17 @@ Many open source contributors started with a single typo fix and went on to beco
 
 ---
 
-## Learn More
-
-- [GitHub Open Source Guides](https://opensource.guide/) (How to contribute, start a project, build communities)
-- [Good First Issues](https://goodfirstissues.com/) (Find beginner-friendly issues)
-- [Up For Grabs](https://up-for-grabs.net/) (Curated list of tasks for new contributors)
-- [First Timers Only](https://www.firsttimersonly.com/) (Resources for first-time open source contributors)
-
----
-
 ## Final Thought
 
 Open source is not just for developers. It is for anyone willing to show up and help. The projects that thrive are the ones with diverse contributors bringing different skills to the table. Whether you write docs, file bugs, answer questions, or design interfaces, you are building something that benefits everyone.
 
 Your contribution does not have to be code. It just has to be useful.
+
+---
+
+## Sources
+
+- [GitHub Open Source Guides](https://opensource.guide/) (How to contribute, start a project, build communities)
+- [GitHub Good First Issue Projects](https://github.com/topics/good-first-issue) (Find beginner-friendly issues)
+- [Up For Grabs](https://up-for-grabs.net/) (Curated list of tasks for new contributors)
+- [First Timers Only](https://www.firsttimersonly.com/) (Resources for first-time open source contributors)

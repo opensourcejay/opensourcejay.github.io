@@ -4,7 +4,7 @@
 
 You've used AI that responds. Now get ready for AI that **acts**.
 
-Autonomous or **Agentic AI** represents the next evolution: intelligent systems that don't just wait for prompts but take initiative. They plan, reason, use tools, and adapt to achieve goals, just like a junior teammate (only faster and tireless).
+Autonomous or **agentic AI** refers to systems that can pursue a goal through multiple steps instead of only producing a single response. Within the permissions and tools people give them, agents can plan, call tools, evaluate results, and adjust their next action. Human oversight remains important, especially when an action affects data, money, infrastructure, or other people.
 
 ---
 
@@ -48,11 +48,11 @@ Microsoft is exploring **standardized protocols** so agents can browse and inter
 
 ### Key Features of AutoGen
 
-- **Multi-agent architecture** – Assign roles (e.g., “Writer”, “Planner”, “Guard”) and let agents collaborate or debate.  
-- **Event-driven design** – Supports async, parallel workflows for efficient execution.  
-- **AutoGen Studio** – A visual, low-code interface for drag-and-drop prototyping.  
-- **Observability** – Track reasoning and actions with OpenTelemetry.  
-- **Tool integration** – Connect to APIs, databases, and external systems.
+- **Multi-agent architecture:** Assign roles (for example, "Writer," "Planner," and "Guard") and let agents collaborate or debate.  
+- **Event-driven design:** Supports asynchronous, parallel workflows for efficient execution.  
+- **AutoGen Studio:** A visual, low-code interface for drag-and-drop prototyping.  
+- **Observability:** Track agent events and tool calls with OpenTelemetry.  
+- **Tool integration:** Connect to APIs, databases, and external systems.
 
 Explore more:  
 [GitHub: microsoft/autogen](https://github.com/microsoft/autogen)
@@ -81,7 +81,7 @@ With power comes risk:
 - **Speed** amplifies mistakes if agents act blindly.  
 - **Contextual memory** raises privacy and control concerns.
 
-Microsoft addresses this through strict permissions, observability, and human-in-the-loop design principles, ensuring AI helps, not hijacks.
+Microsoft's agent platforms provide controls such as permissions, observability, content safety features, and human approval steps. Developers still need to configure these controls, test failure modes, and limit each agent's access.
 
 ---
 
@@ -105,3 +105,14 @@ This unlocks massive potential by automating everything from basic email triage 
 Agentic AI isn't some future concept. It's already in your apps, your OS, and your dev tools. And thanks to platforms like AutoGen, Azure AI Studio, and Copilot Studio, you can start building your own agents today.
 
 The future belongs to those who know how to **build with agents**.
+
+---
+
+## Sources
+
+- [Microsoft Research: AutoGen](https://www.microsoft.com/en-us/research/project/autogen/)
+- [AutoGen GitHub Repository](https://github.com/microsoft/autogen)
+- [Build Agents with Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/copilot-studio-agent-builder-build)
+- [Develop AI-Powered Apps on Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/overview-ai-integration/)
+- [AI Builder in Power Automate](https://learn.microsoft.com/en-us/power-automate/use-ai-builder)
+- [Connected Agents in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/connected-agents?pivots=portal)
