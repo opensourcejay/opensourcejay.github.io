@@ -9,6 +9,8 @@ const GOOGLE_FORM = {
     },
 };
 
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 function ContactModal({ isOpen, onClose }) {
     const dialogRef = useRef(null);
     const formRef = useRef(null);
@@ -16,6 +18,7 @@ function ContactModal({ isOpen, onClose }) {
     const submissionPendingRef = useRef(false);
     const submissionTimeoutRef = useRef(null);
     const [submissionStatus, setSubmissionStatus] = useState('idle');
+    const [validationErrors, setValidationErrors] = useState({});
 
     useEffect(() => {
         const dialog = dialogRef.current;
@@ -35,10 +38,51 @@ function ContactModal({ isOpen, onClose }) {
         clearTimeout(submissionTimeoutRef.current);
         submissionPendingRef.current = false;
         setSubmissionStatus('idle');
+        setValidationErrors({});
         onClose();
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = (event) => {
+        const form = event.currentTarget;
+        const nameInput = form.elements[GOOGLE_FORM.fields.name];
+        const emailInput = form.elements[GOOGLE_FORM.fields.email];
+        const messageInput = form.elements[GOOGLE_FORM.fields.message];
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const message = messageInput.value.trim();
+        const errors = {};
+
+        if (name.length < 2) {
+            errors.name = 'Enter your name using at least 2 characters.';
+        } else if (name.length > 80) {
+            errors.name = 'Keep your name under 80 characters.';
+        }
+
+        if (!email) {
+            errors.email = 'Enter your email address.';
+        } else if (email.length > 254 || !EMAIL_PATTERN.test(email)) {
+            errors.email = 'Enter a valid email address.';
+        }
+
+        if (message.length < 10) {
+            errors.message = 'Enter a message using at least 10 characters.';
+        } else if (message.length > 2000) {
+            errors.message = 'Keep your message under 2,000 characters.';
+        }
+
+        if (Object.keys(errors).length > 0) {
+            event.preventDefault();
+            setSubmissionStatus('idle');
+            setValidationErrors(errors);
+            const firstInvalidField = ['name', 'email', 'message'].find((field) => errors[field]);
+            requestAnimationFrame(() => form.querySelector(`[data-field="${firstInvalidField}"]`)?.focus());
+            return;
+        }
+
+        nameInput.value = name;
+        emailInput.value = email;
+        messageInput.value = message;
+        setValidationErrors({});
         clearTimeout(submissionTimeoutRef.current);
         submissionPendingRef.current = true;
         setSubmissionStatus('submitting');
@@ -54,7 +98,18 @@ function ContactModal({ isOpen, onClose }) {
         clearTimeout(submissionTimeoutRef.current);
         submissionPendingRef.current = false;
         formRef.current?.reset();
+        setValidationErrors({});
         setSubmissionStatus('submitted');
+    };
+
+    const clearFieldError = (event) => {
+        const field = event.currentTarget.dataset.field;
+        if (!validationErrors[field]) return;
+        setValidationErrors((currentErrors) => {
+            const nextErrors = { ...currentErrors };
+            delete nextErrors[field];
+            return nextErrors;
+        });
     };
 
     const handleBackdropClick = (event) => {
@@ -64,11 +119,6 @@ function ContactModal({ isOpen, onClose }) {
     const handleDialogCancel = (event) => {
         event.preventDefault();
         handleClose();
-    };
-
-    const sendAnotherMessage = () => {
-        setSubmissionStatus('idle');
-        requestAnimationFrame(() => formRef.current?.elements[GOOGLE_FORM.fields.name]?.focus());
     };
 
     return (
@@ -102,9 +152,6 @@ function ContactModal({ isOpen, onClose }) {
                             <h3>Message submitted</h3>
                             <p>Thanks for reaching out. Your response has been sent.</p>
                             <div className="contact-success-actions">
-                                <button type="button" className="contact-secondary-button" onClick={sendAnotherMessage}>
-                                    Send another
-                                </button>
                                 <button type="button" className="contact-submit-button" onClick={handleClose}>
                                     Done
                                 </button>
@@ -118,6 +165,7 @@ function ContactModal({ isOpen, onClose }) {
                             method="POST"
                             target="contact-form-response"
                             onSubmit={handleSubmit}
+                            noValidate
                         >
                             <p className="contact-form-intro">Send a note and I’ll get back to you as soon as I can.</p>
 
@@ -129,8 +177,19 @@ function ContactModal({ isOpen, onClose }) {
                                     name={GOOGLE_FORM.fields.name}
                                     type="text"
                                     autoComplete="name"
+                                    minLength="2"
+                                    maxLength="80"
+                                    data-field="name"
+                                    aria-invalid={Boolean(validationErrors.name)}
+                                    aria-describedby={validationErrors.name ? 'contact-name-error' : undefined}
+                                    onInput={clearFieldError}
                                     required
                                 />
+                                {validationErrors.name && (
+                                    <p id="contact-name-error" className="contact-field-error" role="alert">
+                                        {validationErrors.name}
+                                    </p>
+                                )}
                             </div>
 
                             <div className="contact-form-field">
@@ -140,8 +199,18 @@ function ContactModal({ isOpen, onClose }) {
                                     name={GOOGLE_FORM.fields.email}
                                     type="email"
                                     autoComplete="email"
+                                    maxLength="254"
+                                    data-field="email"
+                                    aria-invalid={Boolean(validationErrors.email)}
+                                    aria-describedby={validationErrors.email ? 'contact-email-error' : undefined}
+                                    onInput={clearFieldError}
                                     required
                                 />
+                                {validationErrors.email && (
+                                    <p id="contact-email-error" className="contact-field-error" role="alert">
+                                        {validationErrors.email}
+                                    </p>
+                                )}
                             </div>
 
                             <div className="contact-form-field">
@@ -150,8 +219,19 @@ function ContactModal({ isOpen, onClose }) {
                                     id="contact-message"
                                     name={GOOGLE_FORM.fields.message}
                                     rows="5"
+                                    minLength="10"
+                                    maxLength="2000"
+                                    data-field="message"
+                                    aria-invalid={Boolean(validationErrors.message)}
+                                    aria-describedby={validationErrors.message ? 'contact-message-error' : undefined}
+                                    onInput={clearFieldError}
                                     required
                                 />
+                                {validationErrors.message && (
+                                    <p id="contact-message-error" className="contact-field-error" role="alert">
+                                        {validationErrors.message}
+                                    </p>
+                                )}
                             </div>
 
                             <div className="contact-form-footer">

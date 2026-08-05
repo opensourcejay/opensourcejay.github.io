@@ -2484,6 +2484,23 @@ button[data-calendar-scheduling-button]:hover {
     box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.14);
 }
 
+.contact-form-field input[aria-invalid="true"],
+.contact-form-field textarea[aria-invalid="true"] {
+    border-color: #b91c1c;
+}
+
+.contact-form-field input[aria-invalid="true"]:focus,
+.contact-form-field textarea[aria-invalid="true"]:focus {
+    box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.14);
+}
+
+.contact-field-error {
+    margin: 0;
+    color: #b91c1c;
+    font-size: 0.78rem;
+    line-height: 1.4;
+}
+
 .contact-form-footer {
     display: flex;
     align-items: center;
@@ -2498,8 +2515,7 @@ button[data-calendar-scheduling-button]:hover {
     font-size: 0.75rem;
 }
 
-.contact-submit-button,
-.contact-secondary-button {
+.contact-submit-button {
     min-height: 44px;
     padding: 0.7rem 1.1rem;
     border-radius: var(--radius-md);
@@ -2525,17 +2541,6 @@ button[data-calendar-scheduling-button]:hover {
 .contact-submit-button:disabled {
     opacity: 0.65;
     cursor: wait;
-}
-
-.contact-secondary-button {
-    border: 1px solid var(--border-color);
-    background: white;
-    color: var(--text-color);
-}
-
-.contact-secondary-button:hover {
-    border-color: var(--primary-color);
-    color: var(--primary-color);
 }
 
 .contact-form-status {
@@ -2595,8 +2600,7 @@ button[data-calendar-scheduling-button]:hover {
 
 .sidebar-contact-button:focus-visible,
 .contact-dialog-close:focus-visible,
-.contact-submit-button:focus-visible,
-.contact-secondary-button:focus-visible {
+.contact-submit-button:focus-visible {
     outline: 3px solid rgba(5, 150, 105, 0.35);
     outline-offset: 3px;
 }
