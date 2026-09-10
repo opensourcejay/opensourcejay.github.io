@@ -143,61 +143,47 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 auto;
 }
 
-/* Sidebar Navigation */
 .sidebar-nav {
-    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .nav-section {
-    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .nav-section-title {
-    font-size: 0.7rem;
+    color: var(--text-color);
+    font-size: 0.875rem;
     font-weight: 700;
-    color: var(--secondary-text);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 1rem;
-    padding-left: 0.5rem;
+    margin-bottom: 0.75rem;
 }
 
 .sidebar-nav-links {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 0.5rem;
 }
 
 .sidebar-nav-link {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 0.7rem 1rem;
-    color: var(--secondary-text);
-    text-decoration: none;
+    padding: 0.75rem 1rem;
     border-radius: var(--radius-lg);
-    transition: all var(--transition-smooth);
-    font-weight: 500;
+    color: var(--secondary-text);
     font-size: 0.9rem;
-    position: relative;
-}
-
-.sidebar-nav-link:hover {
-    background-color: var(--hover-bg);
-    color: var(--text-color);
-    transform: translateX(4px);
-}
-
-.sidebar-nav-link:hover .nav-icon {
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-.sidebar-nav-link.active {
-    background: linear-gradient(135deg, var(--primary-light), rgba(16, 185, 129, 0.12));
-    color: var(--primary-color);
     font-weight: 600;
-    box-shadow: 0 2px 8px rgba(5, 150, 105, 0.1);
+    text-decoration: none;
+    transition: background-color var(--transition-base), color var(--transition-base), transform var(--transition-base);
+}
+
+.sidebar-nav-link:hover,
+.sidebar-nav-link.active {
+    background: var(--hover-bg);
+    color: var(--primary-color);
+    transform: translateX(2px);
 }
 
 .sidebar-nav-link.active .nav-icon {
@@ -1693,15 +1679,13 @@ h1, h2, h3, h4, h5, h6 {
 /* Speaking section headings */
 .speaking-topics,
 .speaking-types,
-.past-engagements,
-.contact-section {
+.past-engagements {
     margin-bottom: 5rem;
 }
 
 .speaking-topics h2,
 .speaking-types h2,
-.past-engagements h2,
-.contact-section h2 {
+.past-engagements h2 {
     font-size: 1.75rem;
     font-weight: 800;
     margin-bottom: 2rem;
@@ -1860,80 +1844,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .engagement-card:hover .engagement-cta {
     letter-spacing: 0.02em;
-}
-
-/* Contact / Booking Section */
-.contact-section {
-    text-align: center;
-    background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
-    padding: 3.5rem 2rem;
-    border-radius: var(--radius-xl);
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
-    animation: fadeInUp 0.6s ease-out 0.35s both;
-}
-
-.contact-badge {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: 0.75rem;
-}
-
-.contact-section p {
-    font-size: 1rem;
-    line-height: 1.65;
-    color: var(--secondary-text);
-    margin-bottom: 2rem;
-    max-width: 520px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Google Calendar Button */
-.calendar-embed {
-    text-align: center;
-    margin: 2rem 0;
-}
-
-#gcal-scheduling-button-target button,
-#gcal-scheduling-button-target .button,
-.calendar-embed button,
-.calendar-embed .button,
-div[data-calendar-scheduling-button] button,
-button[data-calendar-scheduling-button],
-.gstl_50.gssb_c {
-    background-color: #059669 !important;
-    background: #059669 !important;
-    border-color: #059669 !important;
-    border: 2px solid #059669 !important;
-    color: white !important;
-    padding: 0.75rem 1.5rem !important;
-    border-radius: 100px !important;
-    font-weight: 600 !important;
-    font-size: 0.875rem !important;
-    transition: all 0.2s ease !important;
-    box-shadow: 0 4px 14px rgba(5, 150, 105, 0.3) !important;
-}
-
-#gcal-scheduling-button-target button:hover,
-#gcal-scheduling-button-target .button:hover,
-.calendar-embed button:hover,
-.calendar-embed .button:hover,
-div[data-calendar-scheduling-button] button:hover,
-button[data-calendar-scheduling-button]:hover {
-    background-color: #047857 !important;
-    background: #047857 !important;
-    border-color: #047857 !important;
-    border: 2px solid #047857 !important;
-    transform: translateY(-1px) !important;
-    box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4) !important;
-}
-
-.calendar-embed * {
-    --primary-color: #059669 !important;
-    --hover-color: #047857 !important;
 }
 
 /* =========================================
@@ -2282,8 +2192,7 @@ button[data-calendar-scheduling-button]:hover {
 
     .speaking-topics h2,
     .speaking-types h2,
-    .past-engagements h2,
-    .contact-section h2 {
+    .past-engagements h2 {
         font-size: 1.35rem;
         margin-bottom: 1.5rem;
     }
@@ -2308,14 +2217,6 @@ button[data-calendar-scheduling-button]:hover {
 
     .engagement-card h3 {
         font-size: 1.05rem;
-    }
-
-    .contact-section {
-        padding: 2rem 1.25rem;
-    }
-
-    .contact-section p {
-        margin-bottom: 1.5rem;
     }
 
     .modal-overlay {

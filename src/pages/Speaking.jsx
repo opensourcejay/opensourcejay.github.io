@@ -115,79 +115,6 @@ function Speaking() {
         };
     }, [secretSequence]);
 
-    // Load Google Calendar scheduling-button script + stylesheet and initialize the button
-    useEffect(() => {
-        const cssHref = 'https://calendar.google.com/calendar/scheduling-button-script.css';
-        const jsSrc = 'https://calendar.google.com/calendar/scheduling-button-script.js';
-        const targetId = 'gcal-scheduling-button-target';
-        const scheduleUrl = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ28EiMNjh4bx36EiGCZjwvPIuYSmINjfNe5jfkYST0wrj6kO1MmmpXa6sZMLlH0xeQetlgF6tZH?gv=true';
-
-        // Append stylesheet if not present
-        let linkEl = document.querySelector(`link[href="${cssHref}"]`);
-        if (!linkEl) {
-            linkEl = document.createElement('link');
-            linkEl.rel = 'stylesheet';
-            linkEl.href = cssHref;
-            document.head.appendChild(linkEl);
-        }
-
-        // Append script if not present
-        let scriptEl = document.querySelector(`script[src="${jsSrc}"]`);
-        let appended = false;
-        if (!scriptEl) {
-            scriptEl = document.createElement('script');
-            scriptEl.src = jsSrc;
-            scriptEl.async = true;
-            document.body.appendChild(scriptEl);
-            appended = true;
-        }
-
-        const tryLoad = () => {
-            try {
-                if (window.calendar && window.calendar.schedulingButton && typeof window.calendar.schedulingButton.load === 'function') {
-                    window.calendar.schedulingButton.load({
-                        url: scheduleUrl,
-                        color: '#059669',
-                        label: 'Book an appointment',
-                        target: document.getElementById(targetId),
-                    });
-                    
-                    // Additional styling override after load
-                    setTimeout(() => {
-                        const button = document.querySelector('#gcal-scheduling-button-target button');
-                        if (button) {
-                            button.style.setProperty('background-color', '#059669', 'important');
-                            button.style.setProperty('border-color', '#059669', 'important');
-                            button.style.setProperty('color', 'white', 'important');
-                        }
-                    }, 100);
-                }
-            } catch (err) {
-                // Do not block rendering; log for debugging
-                // eslint-disable-next-line no-console
-                console.error('Failed to initialize Google Calendar scheduling button', err);
-            }
-        };
-
-        if (appended && scriptEl) {
-            scriptEl.addEventListener('load', tryLoad);
-        } else {
-            // Script already present: try immediately and again shortly after
-            tryLoad();
-            setTimeout(tryLoad, 500);
-        }
-
-        return () => {
-            if (appended && scriptEl) {
-                scriptEl.removeEventListener('load', tryLoad);
-                if (scriptEl.parentNode) scriptEl.parentNode.removeChild(scriptEl);
-            }
-            if (linkEl && linkEl.parentNode) {
-                linkEl.parentNode.removeChild(linkEl);
-            }
-        };
-    }, []);
-
     return (
         <section className="section-speaking">
             <div className="container">
@@ -272,13 +199,6 @@ function Speaking() {
                         </div>
                     </div>
 
-                    {/* Booking */}
-                    <div className="contact-section">
-                        <span className="contact-badge" aria-hidden="true">📅</span>
-                        <h2>Book a Speaking Engagement</h2>
-                        <p>Interested in having me speak at your event? Schedule a time to chat about how I can contribute to your audience.</p>
-                        <div id="gcal-scheduling-button-target" className="calendar-embed" />
-                    </div>
                 </div>
             </div>
 
